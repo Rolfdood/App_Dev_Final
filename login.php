@@ -6,6 +6,11 @@
   <title>FinTrack Login</title>
 </head>
 <body>
-  
+  <div>
+  <h1>Login</h1>
+  </div>
+  <div>
+    <form method="post"></form>
+  </div>
 </body>
 </html>
