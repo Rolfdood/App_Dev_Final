@@ -1,5 +1,5 @@
 <?php
-  include("backend/registration_backend.php");
+  include("../backend/registration_backend.php");
   if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['register'])) {
       $reg_info = []; // Submitted information is passed to this variable
@@ -14,7 +14,7 @@
       database_email_check($reg_info,$error);
       if (!in_array(true, $error)) {
         database_insert($reg_info, $error);
-        header('Location: index.php'); // redirect to home page
+        header('Location: ../index.php'); // redirect to home page
         exit();
       }
     }
