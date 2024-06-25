@@ -10,10 +10,10 @@
       }
       validate_reg_info($reg_info, $pattern, $error);
 
-      //database validation function if there is duplicates not added
+      //database email validation function
+      database_email_check($reg_info,$error);
       if (!in_array(true, $error)) {
-        $_SESSION['registered_data'] = $_POST;
-        //add database insert SQL
+        database_insert($reg_info, $error);
         header('Location: index.php'); // redirect to home page
         exit();
       }
@@ -65,6 +65,10 @@
         <div>
           <label for="pass">Password</label>
           <input type="password" name="password" id="pass" class="<?php if(@$error['password']) echo "error"?>" value="<?php echo @$password?>" required>
+        </div>
+        <div>
+          <label for="check_pass">Check Password</label>
+          <input type="password" name="check_password" id="check_pass" class="<?php if(@$error['check_password']) echo "error"?>" required>
         </div>
         <div>
           <label for="dob">Date of Birth</label>
