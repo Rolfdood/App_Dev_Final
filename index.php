@@ -29,6 +29,8 @@ if (isset($_POST["login"]) && $_POST["register"] == "") {
       </div>
       <br>
     </form>
+
+    <a href="php/dashboard.php">Dashboard</a>
   </div>
 </body>
 
