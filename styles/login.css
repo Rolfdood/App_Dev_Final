@@ -1,0 +1,15 @@
+.box {
+  display: flex;
+  justify-content: center; 
+  align-items: center;     
+  width: 300px;            
+  height: 300px;           
+  margin: auto;            
+  border: 2px solid #000;  
+  background-color: #f0f0f0; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.error{
+  border: red 5px;
+}
