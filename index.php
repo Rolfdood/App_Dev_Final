@@ -1,8 +1,8 @@
 <?php
 if (isset($_POST["login"]) && $_POST["register"] == "") {
-  header('Location: login.php');
+  header('Location: php/login.php');
 } elseif (isset($_POST["register"]) && $_POST["login"] == "") {
-  header('Location: register.php');
+  header('Location: php/register.php');
 }
 ?>
 

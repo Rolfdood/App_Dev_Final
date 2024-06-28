@@ -1,5 +1,5 @@
 <?php
-  include("backend/registration_backend.php");
+  include("../backend/registration_backend.php");
   if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['register'])) {
       $reg_info = []; // Submitted information is passed to this variable
@@ -10,11 +10,11 @@
       }
       validate_reg_info($reg_info, $pattern, $error);
 
-      //database email validation function
       database_email_check($reg_info,$error);
+
       if (!in_array(true, $error)) {
         database_insert($reg_info, $error);
-        header('Location: index.php'); // redirect to home page
+        header('Location: ../index.php'); // redirect to home page
         exit();
       }
     }
@@ -28,7 +28,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FinTrack Register</title>
-  <link rel="stylesheet" href="stylesheets/register.css">
+  <link rel="stylesheet" href="styles/register.css">
 </head>
 
 <body>
