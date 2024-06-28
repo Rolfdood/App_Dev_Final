@@ -5,7 +5,7 @@
       
       validate_login($_POST['uname'],$_POST['password']);
       if (!in_array(true, $error)) {
-        header('Location: ../dashboard.php'); // redirect to home page
+        header('Location: dashboard.php'); // redirect to home page
         exit();
       }
     }
