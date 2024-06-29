@@ -10,11 +10,11 @@
       }
       validate_reg_info($reg_info, $pattern, $error);
 
-      database_email_check($reg_info,$error);
+      database_email_check($reg_info, $error);
 
       if (!in_array(true, $error)) {
         database_insert($reg_info, $error);
-        header('Location: ../index.php'); // redirect to home page
+        header('Location: ../php/login.php'); // redirect to login page
         exit();
       }
     }

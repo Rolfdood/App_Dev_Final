@@ -88,7 +88,7 @@ function database_insert($reg_info, &$error)
   mysqli_close($db_connect);
 }
 
-function database_email_check($reg_info, $error)
+function database_email_check($reg_info, &$error)
 {
   /*
     Function to check if the given email to register is already on the database.

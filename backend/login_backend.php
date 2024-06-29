@@ -3,7 +3,7 @@
   This PHP file contains the variables and functions that will be used for registration and login validation
 */
 
-// Regular expressions for validation
+// REGEX Patterns
 $pattern = [
   'email' => '/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/',
   'password' => '/^(?=.*[0-9])(?=.*[\W_]).{8,}$/', // At least 1 number, 1 special character, and at least 8 characters
@@ -16,10 +16,11 @@ $error = [
   'password' => false
 ];
 
-// Function to validate the username and password
 function validate_login($input_uname, $input_password){
+  /*
+  Function to validate login creds
+  */
   global $error, $pattern;
-
   $database = [
     'name' => 'fintrack_db',
     'host' => 'localhost',

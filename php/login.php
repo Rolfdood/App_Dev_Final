@@ -1,4 +1,5 @@
 <?php
+  session_start();
   include("../backend/login_backend.php");
   if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['login'])) {
@@ -28,10 +29,12 @@
   </div>
   <div class="box">
     <form method="post">
-        <Label>User Name</Label>
-        <input type="text" name="uname" class="<?php if(@$error['uname']) echo "error"?>" value="<?php echo @$uname?>" required>
+        <Label>User Name or Email</Label>
+        <br>
+        <input type="text" name="uname" class="<?php if(@$error['uname'] || @$error['email']) echo "error"?>" value="<?php echo @$uname?>" required>
         <br>
         <label for="password">Password</label>
+        <br>
         <input type="password" name="password" class="<?php if(@$error['password']) echo "error"?>" value="<?php echo @$password?>" required>
         <br>
         <label for="remember_me">Remember Me</label>
