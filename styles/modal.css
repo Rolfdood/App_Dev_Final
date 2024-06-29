@@ -1,0 +1,104 @@
+@import url("general.css");
+
+.modal-bg {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    top: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+}
+
+.modal-content {  
+    background-color: var(--container-color);
+    border-radius: 15px;
+}
+
+.rmss-content {
+    width: 1000px;
+    min-width: 800px;
+}
+
+.bdgt-content {
+    width: 1000px;
+    min-width: 800px;
+}
+
+.modal-content .title {
+    background: var(--primary-color);
+    color: var(--container-color);
+    padding: 20px 30px 20px 30px;
+    border-top-left-radius: 13px;
+    border-top-right-radius: 13px;
+}
+
+.modal_field_rows {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding: 0 10px 0 10px;
+}
+
+.modal_fields {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+.modal_fields label {
+    font-size: 15px;
+}
+
+.modal_fields input {
+    height: 40px;
+    text-indent: 10px;
+}
+
+.modal_btns {
+    width: auto;
+    height: 40px;
+    margin: 10px 20px 20px 20px;
+    font-weight: 500;
+    transition: var(--transition-2);
+    padding: 0;
+}
+
+.btn_create:hover {
+    background: var(--primary-color) !important;
+    color: var(--container-color);
+    font-weight: bolder;
+}
+
+.btn_create {
+    width: 100%;
+    background: var(--primary-color-light);
+    border: none;
+    border-radius: 5px;
+}
+
+.btn_cancel {
+    font-size: 25px;
+    rotate: 45deg;
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    background: none;
+    border: none;
+    color: var(--container-color);
+}
+
+.btn_cancel:hover {
+    background: var(--container-color);
+    color: var(--primary-color);
+}
+
+.title {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

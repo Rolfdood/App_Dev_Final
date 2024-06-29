@@ -22,7 +22,7 @@
         <div class="menu">
             <li class="search-box">
                     <i class='bx bx-search icon'></i>                           
-                    <input type="search" name="" id="" placeholder="SEARCH">
+                    <input type="sear   ch" name="" id="" placeholder="SEARCH">
             </li>
             <ul class="menu-links">
                 <li class="nav-link" <?php if ($current == 'dashboard') echo 'id="current"'; ?>>
