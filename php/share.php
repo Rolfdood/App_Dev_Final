@@ -44,7 +44,7 @@
         <link rel="stylesheet" href="../styles/general.css">
         <link rel="stylesheet" href="../styles/user.css">
         <link rel="stylesheet" href="../styles/share.css">
-        <link rel="stylesheet" href="../styles/modal.css">
+        <link rel="stylesheet" href="../styles/rm_bud.css">
         <title>Room Share</title>
     </head>
 

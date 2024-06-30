@@ -1,14 +1,5 @@
 <?php
-    $err_create_title = False;
-
-    if (isset($_POST['btn_create'])) {
-        $bud_title = htmlspecialchars(strip_tags($_POST['modal_title']));
-        $bud_desc = htmlspecialchars(strip_tags($_POST['modal_desc']));
-
-        if (empty($bud_title)) {
-            $err_create_title = True;
-        }
-    }
+    include '../backend/budget_backend.php';
 ?>
 
 <!DOCTYPE html>
@@ -19,8 +10,8 @@
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
         <link rel="stylesheet" href="../styles/general.css">
         <link rel="stylesheet" href="../styles/user.css">
-        <link rel="stylesheet" href="../styles/share.css">
-        <link rel="stylesheet" href="../styles/modal.css">
+        <link rel="stylesheet" href="../styles/budget.css">
+        <link rel="stylesheet" href="../styles/rm_bud.css">
         <title>Budget Plan</title>
     </head>
 
@@ -40,6 +31,8 @@
 
             <div class="contents">
                 <?php include '../backend/create_rm_share_sheet.php'?>
+
+                <a href="budget_output.php">OUTPUT</a>
 
                 <button class="create_new" id="create_new">
                     <i class='bx bx-plus'></i>
