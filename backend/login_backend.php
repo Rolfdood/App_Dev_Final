@@ -16,11 +16,12 @@ $error = [
   'password' => false
 ];
 
-function validate_login($input_uname, $input_password){
+function validate_login($input_uname, $input_password, &$error) {
   /*
-  Function to validate login creds
+  Function to validate login credentials
   */
-  global $error, $pattern;
+  global $pattern;
+
   $database = [
     'name' => 'fintrack_db',
     'host' => 'localhost',
@@ -35,44 +36,52 @@ function validate_login($input_uname, $input_password){
     exit();
   }
 
-  try {
-    // Validate username pattern
-    if (!preg_match($pattern['uname'], $input_uname)) {
-      $error['uname'] = true;
-      echo "Invalid username format.";
-      return false;
-    }
+  // Reset error array
+  $error = [
+    'uname' => false,
+    'password' => false
+  ];
 
-    // Validate password pattern
-    if (!preg_match($pattern['password'], $input_password)) {
-      $error['password'] = true;
-      echo "Invalid password format.";
-      return false;
-    }
+  // Validate username pattern
+  if (!preg_match($pattern['uname'], $input_uname)) {
+    $error['uname'] = true;
+    echo "Invalid username format.";
+    return false;
+  }
 
-    // Check if username or email exists in the database
-    $query = "SELECT * FROM user WHERE user_uname = ? OR user_email = ?";
-    $stmt = mysqli_prepare($db_connect, $query);
-    mysqli_stmt_bind_param($stmt, 'ss', $input_uname, $input_uname);
-    mysqli_stmt_execute($stmt);
-    $result = mysqli_stmt_get_result($stmt);
+  // Validate password pattern
+  if (!preg_match($pattern['password'], $input_password)) {
+    $error['password'] = true;
+    echo "Invalid password format.";
+    return false;
+  }
 
-    if (mysqli_num_rows($result) == 0) {
-      echo "Username or email does not exist.";
-      return false;
-    } else {
-      $row = mysqli_fetch_assoc($result);
-      // Verify password hashed in the database
-      if (password_verify($input_password, $row['password'])) {
-        echo "Login successful.";
-        return true;
-      } else {
-        echo "Incorrect password.";
-        return false;
-      }
-    }
-  } finally {
+  // Check if username or email exists in the database
+  $query = "SELECT * FROM user WHERE user_uname = ?";
+  $stmt = mysqli_prepare($db_connect, $query);
+  mysqli_stmt_bind_param($stmt, 's', $input_uname);
+  mysqli_stmt_execute($stmt);
+  $result = mysqli_stmt_get_result($stmt);
+
+  if (mysqli_num_rows($result) == 0) {
+    echo "Username does not exist.";
+    $error['uname'] = true;
     mysqli_close($db_connect);
+  } else {
+    $row = mysqli_fetch_assoc($result);
+    print_r($row);
+    // Verify password hashed in the database
+    if (password_verify($input_password, $row['user_password'])) {
+      echo "Login successful.";
+      mysqli_close($db_connect);
+      return true;
+    } else {
+      echo "Incorrect password.";
+      $error['password'] = true;
+      mysqli_close($db_connect);
+    }
   }
 }
+
+
 ?>
