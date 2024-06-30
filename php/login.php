@@ -32,31 +32,40 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FinTrack Login</title>
-  <link rel="stylesheet" href="../styles/login.css">
-</head>
-<body>
-  <div>
-  <h1>Login</h1>
-  </div>
-  <div class="box">
-    <form method="post">
-        <Label>User Name or Email</Label>
-        <br>
-        <input type="text" name="uname" class="<?php if(@$error['uname']) echo "error"?>" value="<?php echo @$uname?>" required>
-        <br>
-        <label for="password">Password</label>
-        <br>
-        <input type="password" name="password" class="<?php if(@$error['password']) echo "error"?>" value="<?php echo @$password?>" required>
-        <br>
-        <label for="remember_me">Remember Me</label>
-        <input type="checkbox" name="remember_me" class="">
-        <br>
-        <input type="submit" value="Login" name="login" required> 
-    </form>
-  </div>
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinTrack Login</title>
+    <link rel="stylesheet" href="../styles/general.css">
+    <link rel="stylesheet" href="../styles/login_reg.css">
+  </head>
+
+  <body>
+    <div class="container">
+      <section class="details">
+      </section>
+
+      <section class="login forms">
+        <h1>LOGIN</h1>
+        <hr>
+        <form method="post">
+            <div class="row_fields">
+              <Label>User Name or Email:</Label>
+              <input type="text" name="uname" class="text <?php if(@$erro['uname']) echo "error"?>" value="<?php echo @$uname?>" required>
+            </div>
+
+            <div class="row_fields">
+              <label for="password">Password:</label>
+              <input type="password" name="password" class="text <?php if(@$error['password']) echo "error"?>" value="<?php echo @$password?>" required>
+            </div>
+            
+            <div class="row_remember_me">
+              <input type="checkbox" name="remember_me" class="">
+              <label for="remember_me">Remember Me</label>
+            </div>
+            <input type="submit" class="btn" value="LOGIN" name="login" required> 
+        </form>
+      </section>
+    </div>
+  </body>
 </html>
