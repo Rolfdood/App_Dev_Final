@@ -116,7 +116,7 @@ function encryptPassword($password) {
     Encrypts a string entered and returns it.
   */
 
-  return password_hash($password, PASSWORD_DEFAULT);
+  return crypt($password, PASSWORD_DEFAULT);
 }
 
 function validate_dob($dob) {
