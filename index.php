@@ -1,37 +1,60 @@
-<?php
-if (isset($_POST["login"]) && $_POST["register"] == "") {
-  header('Location: php/login.php');
-} elseif (isset($_POST["register"]) && $_POST["login"] == "") {
-  header('Location: php/register.php');
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FinTrack</title>
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="styles/home.css">
+    <title>FinTrack</title>
+  </head>
 
-<body>
-  <div>
-    <form method="post" target="_self">
-      <div>
-        <label for="login">Login</label> <br>
-        <input type="submit" id="login" name="login" value="Login">
+  <body>
+    <nav class="navbar">
+      <div class="logo">
+        <span class="app-name">FinTrack</span>
       </div>
-      <br>
-      <div>
-        <label for="register">Register</label> <br>
-        <input type="submit" id="register" name="register" value="Register">
-      </div>
-      <br>
-    </form>
 
-    <a href="php/dashboard.php">Dashboard</a>
-  </div>
-</body>
+      <div class="nav-buttons">
+        <a href="#">
+          <i class='bx bxs-home'></i>
+          <span>HOME</span>
+        </a>
+
+        <a href="#">
+        <i class='bx bxs-info-circle' ></i>
+          <span>ABOUT</span>
+        </a>
+
+        <a href="#">
+        <i class='bx bxs-phone' ></i>
+          <span>CONTACT</span>
+        </a>
+
+        <a href="php/login.php">
+          <i class='bx bxs-user' ></i>
+          <span>LOGIN</span>
+        </a>
+
+        <a href="php/register.php">
+          <i class='bx bxs-user-plus' ></i>
+          <span>REGISTER</span>
+        </a>
+      </div>
+    </nav>
+
+    <section class="header">
+      <!-- INSERT PICS (CAROUSEL) -->
+      <h1></h1>
+    </section>
+
+    <section class="about">
+      <!-- INSERT INFO ABOUT THE APP & GROUP -->
+    </section>
+
+    <section class="contact">
+      <!-- INSERT CONTACT INFORMATION -->
+    </section>
+  </body>
 
 </html>
