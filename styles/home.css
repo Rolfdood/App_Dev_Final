@@ -24,7 +24,6 @@
 }
 
 .nav-buttons a {
-    width: 20px;
     margin: 10px;
     text-decoration: none;
     color: var(--primary-color);
