@@ -14,7 +14,8 @@
 
       if (!in_array(true, $error)) {
         database_insert($reg_info, $error);
-        header('Location: ../php/login.php'); // redirect to login page
+        header('Location: ../index.php'); // redirect to home page
+
         exit();
       }
     }

@@ -20,6 +20,7 @@
         <section class="container">
             <h1>Dashboard</h1>
             <hr>
+            <a href="../backend/invalid_access.php">ERROR</a>
         </section>
     </body>
 </html>
