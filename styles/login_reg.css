@@ -54,6 +54,10 @@
   margin: 10px;
 }
 
+.checkbox {
+  flex-direction: row !important;
+}
+
 .row_remember_me {
   text-align: center;
 }

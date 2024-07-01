@@ -32,7 +32,6 @@ function validate_reg_info($reg_info, $pattern, &$error)
     if (isset($pattern[$key])) {
       if (!preg_match($pattern[$key], $value)) {
         $error[$key] = true;
-        echo "Error in " . $pattern[$key];
       }
     }
   }

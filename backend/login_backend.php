@@ -45,15 +45,11 @@ function validate_login($input_uname, $input_password, &$error) {
   // Validate username pattern
   if (!preg_match($pattern['uname'], $input_uname)) {
     $error['uname'] = true;
-    echo "Invalid username format.";
-    return false;
   }
 
   // Validate password pattern
   if (!preg_match($pattern['password'], $input_password)) {
     $error['password'] = true;
-    echo "Invalid password format.";
-    return false;
   }
 
   // Check if username or email exists in the database
@@ -64,19 +60,18 @@ function validate_login($input_uname, $input_password, &$error) {
   $result = mysqli_stmt_get_result($stmt);
 
   if (mysqli_num_rows($result) == 0) {
-    echo "Username does not exist.";
     $error['uname'] = true;
     mysqli_close($db_connect);
   } else {
     $row = mysqli_fetch_assoc($result);
     print_r($row);
+    $db_password = $row['user_password'];
     // Verify password hashed in the database
-    if (password_verify($input_password, $row['user_password'])) {
-      echo "Login successful.";
+    if (password_verify($input_password, $db_password)) {
+      
       mysqli_close($db_connect);
       return true;
     } else {
-      echo "Incorrect password.";
       $error['password'] = true;
       mysqli_close($db_connect);
     }

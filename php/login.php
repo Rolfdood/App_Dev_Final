@@ -14,15 +14,6 @@
               $_SESSION['username'] = $_POST['uname'];
               header('Location: dashboard.php'); // redirect to home page
               exit();
-          } else {
-              // Error message based on the $error array
-              if ($error['uname']) {
-                  $errorMsg = "Invalid username or username does not exist.";
-              } elseif ($error['password']) {
-                  $errorMsg = "Invalid or incorrect password.";
-              } else {
-                  $errorMsg = "Unknown error occurred.";
-              }
           }
       }
   }
@@ -50,13 +41,15 @@
         <hr>
         <form method="post">
             <div class="row_fields">
-              <Label>User Name or Email:</Label>
-              <input type="text" name="uname" class="text <?php if(@$erro['uname']) echo "error"?>" value="<?php echo @$uname?>" required>
+              <Label>User Name:</Label>
+              <input type="text" name="uname" class="text <?php if(@$error['uname']) echo "err_field"?>" value="<?php echo @$uname?>" required>
+              <?php if (@$error['uname']) echo '<span class="err_message">Invalid Username</span>'; ?>
             </div>
 
             <div class="row_fields">
               <label for="password">Password:</label>
-              <input type="password" name="password" class="text <?php if(@$error['password']) echo "error"?>" value="<?php echo @$password?>" required>
+              <input type="password" name="password" class="text <?php if(@$error['password']) echo "err_field"?>" value="<?php echo @$password?>" required>
+              <?php if (@$error['password']) echo '<span class="err_message">Invalid Password</span>'; ?>
             </div>
             
             <div class="row_remember_me">
