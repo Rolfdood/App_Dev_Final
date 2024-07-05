@@ -66,9 +66,7 @@ function validate_login($input_uname, $input_password, &$error) {
     $row = mysqli_fetch_assoc($result);
     print_r($row);
     $db_password = $row['user_password'];
-    // Verify password hashed in the database
-    if (password_verify($input_password, $db_password)) {
-      
+    if (password_verify($input_password, $db_password)) { 
       mysqli_close($db_connect);
       return true;
     } else {

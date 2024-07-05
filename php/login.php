@@ -42,22 +42,27 @@
         <form method="post">
             <div class="row_fields">
               <Label>User Name:</Label>
-              <input type="text" name="uname" class="text <?php if(@$error['uname']) echo "err_field"?>" value="<?php echo @$uname?>" required>
+              <input type="text" name="uname" class="text <?php if(@$error['uname']) echo "err_field"?>" value="<?php echo @$_POST['uname'] ?>" required>
               <?php if (@$error['uname']) echo '<span class="err_message">Invalid Username</span>'; ?>
             </div>
 
             <div class="row_fields">
               <label for="password">Password:</label>
-              <input type="password" name="password" class="text <?php if(@$error['password']) echo "err_field"?>" value="<?php echo @$password?>" required>
+              <input type="password" name="password" class="text <?php if(@$error['password']) echo "err_field"?>" value="<?php echo @$_POST['password'] ?>" required>
               <?php if (@$error['password']) echo '<span class="err_message">Invalid Password</span>'; ?>
             </div>
-            
+        
             <div class="row_remember_me">
               <input type="checkbox" name="remember_me" class="">
               <label for="remember_me">Remember Me</label>
             </div>
+
+            <div class="row_remember_me">
+              <label>Don't have and account? <a href="../php/register.php">Register.</a></label>
+            </div>
+
             <input type="submit" class="btn" value="LOGIN" name="login" required> 
-        </form>
+        </form> 
       </section>
     </div>
   </body>
