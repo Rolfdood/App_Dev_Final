@@ -1,6 +1,8 @@
 <?php
+    $user = 11;
     $err_create = array(False, False, False, False);
  
+    include '../backend/rmshare_backend.php';
     if (isset($_POST['btn_create'])) {
         $rmss_title = htmlspecialchars(strip_tags($_POST['rmss_title']));
         $rmss_tenants = htmlspecialchars(strip_tags($_POST['rmss_tenants']));
@@ -11,6 +13,8 @@
         $rmss_bills[2] = htmlspecialchars(strip_tags($_POST['rmss_uothers']));
         $rmss_desc = htmlspecialchars(strip_tags($_POST['rmss_desc']));
 
+        insertRMShare($user, $rmss_title, $rmss_tenants, $rmss_sdate, $rmss_ldate, $rmss_bills, $rmss_desc);
+        /*
         if (empty($rmss_title)) {
             $err_create[0] = True;
         }
@@ -31,7 +35,7 @@
             if (empty($value)) {
                 $rmss_bills[$key] = 0;
             }
-        }
+        }*/
     }
 ?>
 
@@ -41,7 +45,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-        <link rel="stylesheet" href="../styles/general.css">
+        <link rel="stylesheet" href="../styles/modal.css">
         <link rel="stylesheet" href="../styles/user.css">
         <link rel="stylesheet" href="../styles/share.css">
         <link rel="stylesheet" href="../styles/rm_bud.css">
@@ -58,17 +62,35 @@
         <!-- CONTAINER -->
         <section class="container">
             <div class="page_header">
-                <h1>Room Share</h1>
+                <div class="output_headers">
+                    <h1>Room Share</h1>
+                    <button class="create_new btns" id="create_new">
+                        <i class='bx bx-plus'></i>
+                        <span>ADD NEW</span>
+                    </button>
+                </div>
                 <hr>
             </div>
 
             <div class="contents">
-                <?php include '../backend/create_rm_share_sheet.php'?>
+                <?php 
+                    if (!checkData("SELECT * FROM rmshare WHERE user_id = $user")) {
+                        ?> <div class="output_data">
+                            <?php echo 'No data.'; ?>
+                        </div>
+                    <?php } else { ?>
+                    <table>
+                        <tr class="tbl_headers">
+                            <th>NO.</th>
+                            <th>ROOM SHEETS</th>
+                            <th>EDIT OR DELETE</th>
+                        </tr>
 
-                <button class="create_new" id="create_new">
-                    <i class='bx bx-plus'></i>
-                    <span>ADD NEW</span>
-                </button>
+                        <?php
+                            getRMShare($user);
+                        ?>
+                    </table>
+                <?php } ?>
             </div>
         </section>
 

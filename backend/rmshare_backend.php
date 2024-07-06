@@ -14,11 +14,11 @@
             }
         }
 
-    function getBudget($user_id) {
+    function getRMShare($user_id) {
         // ADD USER_ID IN DATABASE INSERT
         include 'db_functions.php';
 
-        $sql = "SELECT * FROM budget WHERE user_id = $user_id";
+        $sql = "SELECT * FROM rmshare WHERE user_id = $user_id";
 
         $result = mysqli_query($db_connect, $sql);
 
@@ -28,8 +28,8 @@
             echo "<td class='tbl_rnum'>$cnt</td>"; ?>
                 <td>
                     <div class="tbl_rtitle">
-                        <span class="bud_title"><?php echo $row['bud_title']; ?></span>
-                        <span class="bud_desc"><?php echo $row['bud_desc']; ?></span>
+                        <span class="rmshare_title"><?php echo $row['rmshare_title']; ?></span>
+                        <span class="rmshare_desc"><?php echo $row['rmshare_desc']; ?></span>
                     </div>
                 </td>
                 <td class="bud_btns">
@@ -49,11 +49,11 @@
         mysqli_close( $db_connect );
     }
 
-    function insertBudget($user_id, $bud_title, $bud_desc) {
+    function insertRMShare($user_id, $title, $tenants, $sdate, $ldate, $utilities, $desc ) {
         // ADD USER_ID IN DATABASE INSERT
         include 'db_functions.php';
 
-        $sql = "INSERT INTO budget (user_id, bud_title, bud_desc) VALUES ('$user_id', '$bud_title', '$bud_desc')";
+        $sql = "INSERT INTO rmshare (user_id, rmshare_title, rmshare_ntenants, rmshare_sdate, rmshare_edate, rmshare_uelec, rmshare_uwater, rmshare_uothers, rmshare_desc) VALUES ($user_id, '$title', $tenants, '$sdate', '$ldate', $utilities[0], $utilities[1], $utilities[2], '$desc')";
 
         $result = mysqli_query($db_connect, $sql);
 
@@ -65,4 +65,5 @@
 
         mysqli_close($db_connect);
     }
+
 ?>

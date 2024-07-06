@@ -3,8 +3,9 @@
 .navbar {
     width: 100%;
     height: 65px;
-    position: absolute;
+    position: fixed;
     top: 0;
+    left: 0;
 
     display: flex;
     flex-direction: row;
@@ -12,36 +13,82 @@
     
     background: var(--sidebar-color);
     box-shadow: 0 0 10px var(--primary-color);
+    z-index: 100;
+}
+
+.nav-contents {
+    display: flex;
+    justify-content: space-between;
 }
 
 .logo {
     height: 100%;
     margin: auto 10px;
+    color: var(--container-color);
+    font-weight: 500;
 }
+
+.navbar ul {
+    display: flex;
+    flex-direction: row;
+    margin-right: 20px;
+}
+
+.navbar li {
+    height: 50px;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.navbar .text {
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0 25px 0 -5px;
+    color: var(--sidebar-text-color);
+    transition: var(--transition-2);
+    white-space: nowrap;
+}
+
+.navbar li .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    min-width: 60px;
+}
+
+.navbar li .icon ,
+.navbar li .text {
+    color: var(--sidebar-text-color);  
+    transition: var(--transition-1);
+}
+
+.navbar li a {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: var(--transition-3);
+}
+
+.navbar li a:hover {
+    background: var(--container-color);
+}
+
+.navbar li a:hover .icon,
+.navbar li a:hover .text {
+    color: var(--sidebar-color);
+}
+
+
 
 .nav-buttons {
-    margin: auto 10px;
-}
-
-.nav-buttons a {
-    margin: 10px;
-    text-decoration: none;
-    color: var(--primary-color);
-}
-
-.nav-buttons a:hover {
-    background: var(--primary-color);
-    color: var(--container-color);
-    font-weight: bold;
-}
-
-.nav-buttons a i {
-    font-size: 30px;
-}
-
-.nav-buttons a span {
-    margin: auto;
-    margin-left: 10px;
+    display: flex;
+    flex-direction: row;
 }
 
 .header {
@@ -56,4 +103,4 @@
 .contact {
     height: 300px;
     background: var(--primary-color);
-}
+} 

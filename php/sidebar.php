@@ -71,7 +71,7 @@
         </div>
         <div class="bottom-content">
             <li class="nav-link">
-                <a href="#" id="">
+                <a href="../index.php" id="">
                     <i class='bx bxs-log-out icon' ></i>
                     <span class="text nav-text">Log Out</span>
                 </a>
