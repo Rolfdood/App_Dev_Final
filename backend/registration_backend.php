@@ -22,7 +22,7 @@ $error = [
   'lname' => false,
   'password' => false,
   'dob' => false,
-  'check_password' => false,
+  'check_password' => false
 ];
 
 function validate_reg_info($reg_info, $pattern, &$error)

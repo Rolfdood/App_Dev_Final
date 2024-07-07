@@ -72,12 +72,12 @@
     session_start();
 /*
     // Check if the user is logged in
-    if (!isset($_SESSION['user_id'])) {
+    /*if (!isset($_SESSION['user_id'])) {
         header("Location: login.php"); // Redirect to login if not logged in
         exit();
-    }
-*/
-    // Database connection 
+
+    }*/
+
     $database = [
         'name' => 'fintrack_db',
         'host' => 'localhost',

@@ -45,3 +45,41 @@ body {
     color: red;
     font-style: italic;
 }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+
+.tbl_rnum {
+    width: 100px;
+    text-align: center;
+}
+
+.tbl_headers {
+    background: var(--primary-color);
+    color: var(--container-color);
+    height: 50px;
+    font-size: 18px;
+}
+
+tr {
+    border-bottom: 1px solid var(--primary-color-light);
+}
+
+td {
+    padding: 10px;
+}
+
+.btn_delete {
+    background: var(--primary-color-light) !important;
+}
+
+.btn_delete:hover {
+    background: red !important;
+}
+
+.bud_btns {
+    width: 200px;
+}
