@@ -93,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         <div class="row_fields checkbox">
           <input type="checkbox" name="agree" id="agree" required>
-          <label for="agree">Agree with <a href="../php/termsAndServices.php">Terms and Services</a> and <a href="../php/privacy.php">Privacy Policy</a></label>
+          <label for="agree">Agree with <a href="../php/terms.php">Terms and Services</a> and <a href="../php/privacy.php">Privacy Policy</a></label>
         </div>
 
         <div class="row_fields">
