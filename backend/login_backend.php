@@ -76,5 +76,4 @@ function validate_login($input_uname, $input_password, &$error) {
   }
 }
 
-
 ?>
