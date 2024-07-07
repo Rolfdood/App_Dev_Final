@@ -12,44 +12,56 @@
   <body>
     <nav class="navbar">
       <div class="logo">
-        <span class="app-name">FinTrack</span>
+        <span class="app-name">SoloSpend</span>
       </div>
 
       <div class="nav-buttons">
-        <a href="#">
-          <i class='bx bxs-home'></i>
-          <span>HOME</span>
-        </a>
+        <ul>
+          <li class="nav-link">
+            <a href="#">
+              <i class='bx bxs-home icon'></i>
+              <span class="text">HOME</span>
+            </a>
+          </li>
 
-        <a href="#">
-        <i class='bx bxs-info-circle' ></i>
-          <span>ABOUT</span>
-        </a>
+          <li class="nav-link">
+            <a href="#">
+              <i class='bx bxs-info-circle icon' ></i>
+              <span class="text">ABOUT</span>
+            </a>
+          </li>
 
-        <a href="#">
-        <i class='bx bxs-phone' ></i>
-          <span>CONTACT</span>
-        </a>
+          <li class="nav-link">
+            <a href="#">
+              <i class='bx bxs-phone icon' ></i>
+              <span class="text">CONTACT</span>
+            </a>
+          </li>
 
-        <a href="php/login.php">
-          <i class='bx bxs-user' ></i>
-          <span>LOGIN</span>
-        </a>
+          <li class="nav-link">
+            <a href="php/login.php">
+              <i class='bx bxs-user icon' ></i>
+              <span class="text">LOGIN</span>
+            </a>
+          </li>
 
-        <a href="php/register.php">
-          <i class='bx bxs-user-plus' ></i>
-          <span>REGISTER</span>
-        </a>
+          <li class="nav-link">
+            <a href="php/register.php">
+              <i class='bx bxs-user-plus icon' ></i>
+              <span class="text">REGISTER</span>
+            </a>
+          </li>
+        </ul>
       </div>
     </nav>
 
     <section class="header">
       <!-- INSERT PICS (CAROUSEL) -->
-      <h1></h1>
     </section>
 
     <section class="about">
       <!-- INSERT INFO ABOUT THE APP & GROUP -->
+      <a href="php/dashboard.php">DASH</a>
     </section>
 
     <section class="contact">

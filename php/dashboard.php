@@ -21,6 +21,7 @@
             <h1>Dashboard</h1>
             <hr>
             <a href="../backend/invalid_access.php">ERROR</a>
+            <a href="budget_output.php">OUTPUT</a>
         </section>
     </body>
 </html>

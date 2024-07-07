@@ -3,6 +3,6 @@ const body = document.querySelector("body"),
     toggle = document.querySelector(".toggle"),
     btn_search = document.querySelector(".search-box");
 
-    toggle.addEventListener("click", () => {
-        sidebar.classList.toggle("close");
-    });
+toggle.addEventListener("click", () => {
+    sidebar.classList.toggle("close");
+});

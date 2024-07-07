@@ -1,10 +1,14 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
     <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-        <link rel="stylesheet" href="../styles/general.css">
+        <link rel="stylesheet" href="../styles/modal.css">
         <link rel="stylesheet" href="../styles/user.css">
         <link rel="stylesheet" href="../styles/budget.css">
         <link rel="stylesheet" href="../styles/rm_bud.css">
@@ -27,16 +31,16 @@
                     </div>
 
                     <div class="output_btn">
-                        <button class="btn_add" id="btn_add" name="btn_add">ADD ITEM</button>
-                        <button class="btn_edit" id="btn_edit" name="btn_edit">EDIT</button>
-                        <button class="btn_delete" id="btn_delete" name="btn_delete">DELETE</button>
+                        <button class="btn_add btns" id="btn_add" name="btn_add">ADD ITEM</button>
+                        <button class="btn_edit btns" id="btn_edit" name="btn_edit">EDIT</button>
+                        <button class="btn_delete btns" id="btn_delete" name="btn_delete">DELETE</button>
                     </div>
                 </div>
                 <hr>
             </div>
 
             <div class="output_data">
-                LALALA
+                <?php echo $_SESSION['bud_id']; ?>
             </div>
         </section>
 
@@ -44,7 +48,7 @@
             <div class="modal-content bdgt-content">
                 <div class="title">
                     <h2>Add Item</h2>
-                    <button class="btn_cancel">+</button>
+                    <i class='bx bx-x btn_cancel'></i>
                 </div>
 
                 <form action="" method="post">

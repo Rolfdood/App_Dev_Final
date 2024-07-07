@@ -1,7 +1,13 @@
 @import url("general.css");
 
 .output_data {
-    height: inherit;
-    margin-top: 10px;
     background: red;
 }
+
+.tbl_rtitle {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
