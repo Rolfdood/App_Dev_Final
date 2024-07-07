@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +7,7 @@
     <link rel="stylesheet" href="../styles/general.css">
     <link rel="stylesheet" href="../styles/user.css">
     <title>Dashboard</title>
+
     <style>
         /* Styling for the table container */
         .table-container {
@@ -16,11 +16,13 @@
             border-radius: 10px; /* Rounded corners */
         }
 
+
         /* Table styling */
         table {
             width: 100%;
             border-collapse: collapse;
         }
+
 
         th, td {
             border: none; /* Remove default borders */
@@ -29,14 +31,17 @@
             color: white; /* White text */
         }
 
+
         th {
             background-color: #222; /* Slightly darker header */
             font-weight: bold;
         }
 
+
         tr:nth-child(even) {
             background-color: #444; /* Alternate row background */
         }
+
 
         /* Action button styling */
         .action-btn {
@@ -49,39 +54,41 @@
             text-decoration: none; /* Remove underline from links */
         }
 
+
         .action-btn.delete {
             background-color: #dc3545; /* Red */
         }
+
 
         /* Hover effect for buttons */
         .action-btn:hover {
             opacity: 0.8;
         }
+
     </style>
 </head>
-
 <body>
     <?php
     session_start();
-
+/*
     // Check if the user is logged in
     if (!isset($_SESSION['user_id'])) {
         header("Location: login.php"); // Redirect to login if not logged in
         exit();
     }
-
+*/
+    // Database connection 
     $database = [
         'name' => 'fintrack_db',
         'host' => 'localhost',
-        'pass' => '',
-        'user' => 'root'
+        'pass' => '', 
+        'user' => 'root' 
     ];
 
     $db_connect = mysqli_connect($database['host'], $database['user'], $database['pass'], $database['name']);
 
     if (mysqli_connect_errno()) {
-        echo "Failed to connect to MySQL: " . mysqli_connect_error();
-        exit();
+        die("Failed to connect to MySQL: " . mysqli_connect_error());
     }
 
     // Handle expense addition
@@ -91,30 +98,7 @@
         $exp_mop = $_POST['exp_mop'];
         $exp_amount = $_POST['exp_amount'];
         $exp_remarks = $_POST['exp_remarks'];
-        $user_id = $_SESSION['user_id']; // Get user_id from session
-
-        // Input validation 
-        if (empty($exp_date) || empty($exp_type) || empty($exp_amount)) {
-            echo "Please fill in all required fields.";
-        } else {
-            // Check if user_id exists 
-            $check_user_sql = "SELECT user_id FROM user WHERE user_id = '$user_id'";
-            $check_user_result = mysqli_query($db_connect, $check_user_sql);
-
-            if (mysqli_num_rows($check_user_result) > 0) {
-                // User exists, proceed with expense insertion
-                $sql = "INSERT INTO expenses (user_id, exp_date, exp_type, exp_mop, exp_amount, exp_remarks) 
-                        VALUES ('$user_id', '$exp_date', '$exp_type', '$exp_mop', '$exp_amount', '$exp_remarks')";
-
-                if (mysqli_query($db_connect, $sql)) {
-                    echo "Expense added successfully.";
-                } else {
-                    echo "Error adding expense: " . mysqli_error($db_connect);
-                }
-            } else {
-                echo "Invalid user ID.";
-            }
-        }
+        $user_id = $_SESSION['user_id']; 
     }
 
     // Handle expense deletion
@@ -131,13 +115,13 @@
     }
 
     // Fetch expenses for the current user
-    $user_id = $_SESSION['user_id']; // Get user_id from session
-    $sql = "SELECT * FROM expenses WHERE user_id = '$user_id' ORDER BY exp_date DESC"; // Order by date descending
+    $user_id = $_SESSION['user_id'];
+    $sql = "SELECT * FROM income WHERE user_id = '$user_id'";
     $result = mysqli_query($db_connect, $sql);
-   
 
     $current = 'expense';
     include "sidebar.php";
+
     ?>
 
     <section class="container">
@@ -155,21 +139,25 @@
                     <th>Actions</th>
                 </tr>
                 <?php
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo "<tr>";
-                    echo "<td>" . date('m/d/Y', strtotime($row['exp_date'])) . "</td>";
-                    echo "<td>" . $row['exp_type'] . "</td>";
-                    echo "<td>" . $row['exp_mop'] . "</td>";
-                    echo "<td>" . $row['exp_amount'] . "</td>";
-                    echo "<td>" . $row['exp_remarks'] . "</td>";
-                    echo "<td>";
-                    echo "<form method='post' style='display:inline;'>";
-                    echo "<input type='hidden' name='exp_id' value='" . $row['exp_id'] . "'>";
-                    echo "<button type='submit' name='delete_expense' class='action-btn delete' onclick='return confirm(\"Are you sure you want to delete this expense?\")'>Delete</button>";
-                    echo "</form>";
-                    echo "<button class='action-btn'>Edit</button>"; 
-                    echo "</td>";
-                    echo "</tr>";
+                if ($result && mysqli_num_rows($result) > 0) {
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        echo "<tr>";
+                        echo "<td>" . date('m/d/Y', strtotime($row['exp_date'])) . "</td>";
+                        echo "<td>" . $row['exp_type'] . "</td>";
+                        echo "<td>" . $row['exp_mop'] . "</td>";
+                        echo "<td>" . $row['exp_amount'] . "</td>";
+                        echo "<td>" . $row['exp_remarks'] . "</td>";
+                        echo "<td>";
+                        echo "<form method='post' style='display:inline;'>";
+                        echo "<input type='hidden' name='exp_id' value='" . $row['exp_id'] . "'>";
+                        echo "<button type='submit' name='delete_expense' class='action-btn delete' onclick='return confirm(\"Are you sure you want to delete this expense?\")'>Delete</button>";
+                        echo "</form>";
+                        echo "<button class='action-btn'>Edit</button>"; // (Edit functionality not implemented yet)
+                        echo "</td>";
+                        echo "</tr>";
+                    }
+                } else {
+                    echo "<tr><td colspan='6'>No expenses found.</td></tr>";
                 }
                 ?>
             </table>
@@ -202,5 +190,4 @@
         </form>
     </section>
 </body>
-
 </html>
