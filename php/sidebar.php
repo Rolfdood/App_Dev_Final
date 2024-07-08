@@ -20,10 +20,11 @@
 
     <div class="menu-bar">
         <div class="menu">
+            <!--
             <li class="search-box">
                     <i class='bx bx-search icon'></i>                           
                     <input type="sear   ch" name="" id="" placeholder="SEARCH">
-            </li>
+            </li> -->
             <ul class="menu-links">
                 <li class="nav-link" <?php if ($current == 'dashboard') echo 'id="current"'; ?>>
                     <a href="dashboard.php" id="">
