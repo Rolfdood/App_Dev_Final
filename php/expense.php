@@ -79,7 +79,6 @@
     }*/
 
     include '../backend/db_functions.php';
-
     
     // Handle expense addition
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_expense'])) {

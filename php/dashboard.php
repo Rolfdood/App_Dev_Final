@@ -1,3 +1,35 @@
+<?php
+    session_start();
+    //check for the session UID
+    if(!isset($_SESSION['user_uname'])){
+        header('Location: login.php');
+    } else {
+        //retrieve UID from db
+        $database = [
+            'name' => 'solospend_db',
+            'host' => 'localhost',
+            'pass' => '',
+            'user' => 'root'
+        ];
+        
+        $db_connect = mysqli_connect($database['host'], $database['user'], $database['pass'], $database['name']);
+        
+        if (mysqli_connect_errno()) {
+            echo "Failed to connect to MySQL: " . mysqli_connect_error();
+            exit();
+        }
+        $username = $_SESSION['user_uname'];
+        $check_query = "SELECT * FROM user WHERE user_uname = '$username'";
+        
+        $result = mysqli_query($db_connect, $check_query);
+        
+        $row = mysqli_fetch_assoc($result);
+
+        $_SESSION['user_id'] = $row['user_id'];
+    }
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>

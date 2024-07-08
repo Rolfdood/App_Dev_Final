@@ -8,8 +8,8 @@
             <div class="text header-text">
                 <!-- INPUT!!! -->
                  <!-- USE SESSION -->
-                <span class="uname">TEST 1</span>
-                <span class="userID">UID: 0000000001</span>
+                <span class="uname"><?php echo $_SESSION['user_uname']?></span>
+                <span class="userID">UID: <?php echo $_SESSION['user_id']?></span>
             </div>
         </div>
 
