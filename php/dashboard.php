@@ -5,19 +5,8 @@
         header('Location: login.php');
     } else {
         //retrieve UID from db
-        $database = [
-            'name' => 'solospend_db',
-            'host' => 'localhost',
-            'pass' => '',
-            'user' => 'root'
-        ];
+        include '../backend/db_functions.php';
         
-        $db_connect = mysqli_connect($database['host'], $database['user'], $database['pass'], $database['name']);
-        
-        if (mysqli_connect_errno()) {
-            echo "Failed to connect to MySQL: " . mysqli_connect_error();
-            exit();
-        }
         $username = $_SESSION['user_uname'];
         $check_query = "SELECT * FROM user WHERE user_uname = '$username'";
         
