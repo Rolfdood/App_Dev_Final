@@ -55,6 +55,7 @@ function validate_login($input_uname, $input_password, &$error) {
   // Check if username or email exists in the database
   $query = "SELECT * FROM user WHERE user_uname = ?";
   $stmt = mysqli_prepare($db_connect, $query);
+  $input_uname = strtolower(trim($input_uname));
   mysqli_stmt_bind_param($stmt, 's', $input_uname);
   mysqli_stmt_execute($stmt);
   $result = mysqli_stmt_get_result($stmt);

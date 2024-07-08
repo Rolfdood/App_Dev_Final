@@ -68,7 +68,7 @@ function database_insert($reg_info, &$error)
     exit();
   }
 
-  $uname = mysqli_real_escape_string($db_connect, $reg_info['uname']);
+  $uname = strtolower(mysqli_real_escape_string($db_connect, $reg_info['uname']));
   $fname = mysqli_real_escape_string($db_connect, $reg_info['fname']);
   $lname = mysqli_real_escape_string($db_connect, $reg_info['lname']);
   $email = mysqli_real_escape_string($db_connect, $reg_info['email']);

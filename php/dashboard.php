@@ -2,7 +2,7 @@
     session_start();
     //check for the session UID
     if(!isset($_SESSION['user_uname'])){
-        header('Location: login.php');
+        header('Location: ../backend/invalid_access.php');
     } else {
         //retrieve UID from db
         include '../backend/db_functions.php';
