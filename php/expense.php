@@ -78,19 +78,9 @@
 
     }*/
 
-    $database = [
-        'name' => 'fintrack_db',
-        'host' => 'localhost',
-        'pass' => '', 
-        'user' => 'root' 
-    ];
+    include '../backend/db_functions.php';
 
-    $db_connect = mysqli_connect($database['host'], $database['user'], $database['pass'], $database['name']);
-
-    if (mysqli_connect_errno()) {
-        die("Failed to connect to MySQL: " . mysqli_connect_error());
-    }
-
+    
     // Handle expense addition
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_expense'])) {
         $exp_date = $_POST['exp_date'];
