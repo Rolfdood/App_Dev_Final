@@ -53,7 +53,7 @@
         // ADD USER_ID IN DATABASE INSERT
         include 'db_functions.php';
 
-        $sql = "INSERT INTO rmshare (user_id, rmshare_title, rmshare_ntenants, rmshare_sdate, rmshare_edate, rmshare_uelec, rmshare_uwater, rmshare_uothers, rmshare_desc) VALUES ($user_id, '$title', $tenants, '$sdate', '$ldate', $utilities[0], $utilities[1], $utilities[2], '$desc')";
+        $sql = "INSERT INTO rmshare (user_id, rmshare_title, rmshare_ntenants, rmshare_sdate, rmshare_edate, rmshare_uelec, rmshare_uwater, rmshare_uothers, rmshare_desc) VALUES ($user_id, '$title', $tenants, $sdate, $ldate, $utilities[0], $utilities[1], $utilities[2], '$desc')";
 
         $result = mysqli_query($db_connect, $sql);
 

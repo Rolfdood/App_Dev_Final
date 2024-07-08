@@ -1,4 +1,12 @@
 <?php
+    /*
+    session_start();
+    // Check if the user is logged in
+    /*if (!isset($_SESSION['user_id'])) {
+        header("Location: ../backend/invalid_access.php"); // Redirect to login if not logged in
+        exit();
+    }*/
+
     $user = 11;
     $err_create = array(False, False, False, False);
  
@@ -45,6 +53,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" href="../styles/general.css">
         <link rel="stylesheet" href="../styles/modal.css">
         <link rel="stylesheet" href="../styles/user.css">
         <link rel="stylesheet" href="../styles/share.css">

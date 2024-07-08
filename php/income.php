@@ -79,19 +79,9 @@
 */
 
     // Database connection (Corrected credentials)
-    $database = [
-        'name' => 'solospend_db',
-        'host' => 'localhost',
-        'pass' => '', // Assuming empty password for this example
-        'user' => 'root' 
-    ];
 
-    $db_connect = mysqli_connect($database['host'], $database['user'], $database['pass'], $database['name']);
-
-    if (mysqli_connect_errno()) {
-        die("Failed to connect to MySQL: " . mysqli_connect_error());
-    }
-
+    include '../backend/db_functions.php';
+  
     // Handle income addition
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_income']))  {
         $inc_date = $_POST['inc_date'];
