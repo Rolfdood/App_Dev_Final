@@ -80,7 +80,7 @@
 
     // Database connection (Corrected credentials)
     $database = [
-        'name' => 'fintrack_db',
+        'name' => 'solospend_db',
         'host' => 'localhost',
         'pass' => '', // Assuming empty password for this example
         'user' => 'root' 

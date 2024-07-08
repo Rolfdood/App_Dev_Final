@@ -79,7 +79,7 @@
     }*/
 
     $database = [
-        'name' => 'fintrack_db',
+        'name' => 'solospend_db',
         'host' => 'localhost',
         'pass' => '', 
         'user' => 'root' 

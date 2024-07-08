@@ -56,7 +56,7 @@ function database_insert($reg_info, &$error)
   */
 
   $database = [
-    'name' => 'fintrack_db',
+    'name' => 'solospend_db',
     'host' => 'localhost',
     'pass' => '',
     'user' => 'root'
@@ -94,7 +94,7 @@ function database_email_check($reg_info, &$error)
   */
 
   $database = [
-    'name' => 'fintrack_db',
+    'name' => 'solospend_db',
     'host' => 'localhost',
     'pass' => '',
     'user' => 'root'

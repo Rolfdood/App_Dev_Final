@@ -10,20 +10,20 @@
 </head>
 <body>
     <?php
+    session_start();
     $current = 'summary';
     include "sidebar.php";
 
-    session_start();
 
     // Check if the user is logged in
     if (!isset($_SESSION['user_id'])) {
-        header("Location: login.php"); // Redirect to login if not logged in
+        header("Location:login.php"); // Redirect to login if not logged in
         exit();
     }
 
     // Database connection 
     $database = [
-        'name' => 'fintrack_db',
+        'name' => 'solospend_db',
         'host' => 'localhost',
         'pass' => '', 
         'user' => 'root' 

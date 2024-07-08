@@ -23,7 +23,7 @@ function validate_login($input_uname, $input_password, &$error) {
   global $pattern;
 
   $database = [
-    'name' => 'fintrack_db',
+    'name' => 'solospend_db',
     'host' => 'localhost',
     'pass' => '',
     'user' => 'root'
@@ -78,7 +78,7 @@ function validate_login($input_uname, $input_password, &$error) {
 
 function get_UID($username){
   $database = [
-    'name' => 'fintrack_db',
+    'name' => 'solospend_db',
     'host' => 'localhost',
     'pass' => '',
     'user' => 'root'
