@@ -11,9 +11,9 @@
           
           if ($loginSuccessful) {
               // Set session variables or other actions for successful login
-              //$_SESSION['username'] = $_POST['uname'];
-              // Get userID for dash $_SESSION['UID'] = ;
-              header('Location: dashboard.php'); // redirect to home page
+              $_SESSION['user_uname'] = get_UID($_POST['uname']);
+              echo 'Hello' . $_SESSION['user_uname'];
+              header('Location: dashboard.php');
               exit();
           }
       }

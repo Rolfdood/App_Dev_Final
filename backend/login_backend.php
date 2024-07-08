@@ -64,7 +64,7 @@ function validate_login($input_uname, $input_password, &$error) {
     mysqli_close($db_connect);
   } else {
     $row = mysqli_fetch_assoc($result);
-    print_r($row);
+    //print_r($row);
     $db_password = $row['user_password'];
     if (password_verify($input_password, $db_password)) { 
       mysqli_close($db_connect);
@@ -74,6 +74,31 @@ function validate_login($input_uname, $input_password, &$error) {
       mysqli_close($db_connect);
     }
   }
+}
+
+function get_UID($username){
+  $database = [
+    'name' => 'fintrack_db',
+    'host' => 'localhost',
+    'pass' => '',
+    'user' => 'root'
+];
+
+$db_connect = mysqli_connect($database['host'], $database['user'], $database['pass'], $database['name']);
+
+if (mysqli_connect_errno()) {
+    echo "Failed to connect to MySQL: " . mysqli_connect_error();
+    exit();
+}
+
+$check_query = "SELECT * FROM user WHERE user_uname = '$username'";
+
+$result = mysqli_query($db_connect, $check_query);
+
+$row = mysqli_fetch_assoc($result);
+
+return $row['user_uname'];
+
 }
 
 ?>
