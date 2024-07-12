@@ -9,7 +9,9 @@
     }*/
 
     $err_create_title = False;
-
+    if(!isset($_SESSION['user_uname'])){
+        header('Location: ../backend/invalid_access.php');
+    }
     if (isset($_POST['btn_create'])) {
         $bud_title = htmlspecialchars(strip_tags($_POST['modal_title']));
         $bud_desc = htmlspecialchars(strip_tags($_POST['modal_desc']));

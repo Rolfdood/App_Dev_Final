@@ -1,11 +1,9 @@
 <?php
     session_start();
-    /*
-    // Check if the user is logged in
-    /*if (!isset($_SESSION['user_id'])) {
+    if (!isset($_SESSION['user_id'])) {
         header("Location: ../backend/invalid_access.php"); // Redirect to login if not logged in
         exit();
-    }*/
+    }
 
     $user = 11;
     $err_create = array(False, False, False, False);

@@ -1,5 +1,8 @@
 <?php
     session_start();
+    if(!isset($_SESSION['user_uname'])){
+        header('Location: ../backend/invalid_access.php');
+    }
     
 ?>
 <!DOCTYPE html>
