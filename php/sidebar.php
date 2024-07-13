@@ -1,4 +1,4 @@
-<nav class="sidebar close">
+<nav class="sidebar">
     <header> 
         <div class="image-text">
             <span class="image">
@@ -8,8 +8,8 @@
             <div class="text header-text">
                 <!-- INPUT!!! -->
                  <!-- USE SESSION -->
-                <span class="uname"><?php echo $_SESSION['user_uname']?></span>
-                <span class="userID">UID: <?php echo $_SESSION['user_id']?></span>
+                <span class="uname"><?php echo 11//$_SESSION['user_uname']?></span>
+                <span class="userID">UID: <?php echo 11//$_SESSION['user_id']?></span>
             </div>
         </div>
 
@@ -27,44 +27,44 @@
             </li> -->
             <ul class="menu-links">
                 <li class="nav-link" <?php if ($current == 'dashboard') echo 'id="current"'; ?>>
-                    <a href="dashboard.php" id="">
+                    <a href="dashboard.php" id="" title="Dashboard">
                         <i class='bx bxs-dashboard icon' ></i>
                         <span class="text nav-text">Dashboard</span>
                     </a>
                 </li>
                 <li class="nav-link" <?php if ($current == 'profile') echo 'id="current"'; ?>>
-                    <a href="profile.php" id="">
+                    <a href="profile.php" id="" title="Profile">
                         <i class='bx bxs-user icon' ></i>
                         <span class="text nav-text">Profile</span>
                     </a>
                 </li>
                 <li class="nav-link" <?php if ($current == 'expense') echo 'id="current"'; ?>>
-                    <a href="expense.php" id="">
+                    <a href="expense.php" id="" title="Expenses">
                         <i class='bx bxs-credit-card-alt icon' ></i>
                         <span class="text nav-text">Expenses</span>
                     </a>
                 </li>
                 <li class="nav-link" <?php if ($current == 'income') echo 'id="current"'; ?>>
-                    <a href="income.php" id="">
+                    <a href="income.php" id="" title="Income">
                         <i class='bx bxs-coin icon' ></i>
                         <span class="text nav-text">Income</span>
                     </a>
                 </li>
                 <!--
-                <li class="nav-link" <?php if ($current == 'summary') echo 'id="current"'; ?>>
+                <li class="nav-link" <?php //if ($current == 'summary') echo 'id="current"'; ?>>
                     <a href="summary.php" id="">
                         <i class='bx bxs-bar-chart-alt-2 icon' ></i>
                         <span class="text nav-text">Summary</span>
                     </a>
                 </li> -->
                 <li class="nav-link" <?php if ($current == 'budget') echo 'id="current"'; ?>>
-                    <a href="budget.php" id="">
+                    <a href="budget.php" id="" title="Budget Plan">
                         <i class='bx bxs-note icon' ></i>
                         <span class="text nav-text">Budget Plan</span>
                     </a>
                 </li>
                 <li class="nav-link" <?php if ($current == 'rmshare') echo 'id="current"'; ?>>
-                    <a href="share.php" id="">
+                    <a href="share.php" id="" title="Room Share">
                         <i class='bx bxs-home-circle icon' ></i>
                         <span class="text nav-text">Room Share</span>
                     </a>
@@ -72,12 +72,18 @@
             </ul>
         </div>
         <div class="bottom-content">
-            <li class="nav-link">
-                <a href="../index.php" id="">
+            <li class="../nav-link">
+                <a href="../index.php" id="log_out" title="Log Out">
                     <i class='bx bxs-log-out icon' ></i>
                     <span class="text nav-text">Log Out</span>
                 </a>
             </li>
+
+            <?php
+                //if (isset($_REQUEST['log_out'])) {
+                //    session_unset();
+                //}
+            ?>
         </div>
     </div>
     

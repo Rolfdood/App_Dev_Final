@@ -1,5 +1,5 @@
 <?php
-    session_start();
+    /*session_start();
     //check for the session UID
     if(!isset($_SESSION['user_uname'])){
         header('Location: login.php');
@@ -15,7 +15,7 @@
         $row = mysqli_fetch_assoc($result);
 
         $_SESSION['user_id'] = $row['user_id'];
-    }
+    }*/
 ?>
 
 
