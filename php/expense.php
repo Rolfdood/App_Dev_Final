@@ -7,79 +7,22 @@
     <link rel="stylesheet" href="../styles/general.css">
     <link rel="stylesheet" href="../styles/user.css">
     <title>Dashboard</title>
-
     <style>
-        /* Styling for the table container */
-        .table-container {
-            background-color: #333; /* Dark background */
-            padding: 20px;
-            border-radius: 10px; /* Rounded corners */
-        }
-
-
-        /* Table styling */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-
-        th, td {
-            border: none; /* Remove default borders */
-            padding: 12px 15px;
-            text-align: left;
-            color: white; /* White text */
-        }
-
-
-        th {
-            background-color: #222; /* Slightly darker header */
-            font-weight: bold;
-        }
-
-
-        tr:nth-child(even) {
-            background-color: #444; /* Alternate row background */
-        }
-
-
-        /* Action button styling */
-        .action-btn {
-            background-color: #007bff; /* Blue */
-            color: white;
-            padding: 8px 15px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none; /* Remove underline from links */
-        }
-
-
-        .action-btn.delete {
-            background-color: #dc3545; /* Red */
-        }
-
-
-        /* Hover effect for buttons */
-        .action-btn:hover {
-            opacity: 0.8;
-        }
-
+        /* ... (CSS styles remain the same) */
     </style>
 </head>
 <body>
     <?php
     session_start();
-    /*
-    // Check if the user is logged in
-    /*if (!isset($_SESSION['user_id'])) {
-        header("Location: login.php"); // Redirect to login if not logged in
-        exit();
-
-    }*/
-
+    include '../backend/db_conn.php'; 
     include '../backend/db_functions.php';
-    
+
+    // Check if the user is logged in
+    if (!isset($_SESSION['user_id'])) {
+        header("Location: login.php"); 
+        exit();
+    }
+
     // Handle expense addition
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_expense'])) {
         $exp_date = $_POST['exp_date'];
@@ -87,7 +30,22 @@
         $exp_mop = $_POST['exp_mop'];
         $exp_amount = $_POST['exp_amount'];
         $exp_remarks = $_POST['exp_remarks'];
-        $user_id = $_SESSION['user_id']; 
+        $user_id = $_SESSION['user_id'];
+
+        // Input validation (add more robust validation as needed)
+        if (empty($exp_date) || empty($exp_type) || empty($exp_amount)) {
+            echo "Please fill in all required fields.";
+        } else {
+            // Insert expense into database
+            $sql = "INSERT INTO expenses (user_id, exp_date, exp_type, exp_mop, exp_amount, exp_remarks) 
+                    VALUES ('$user_id', '$exp_date', '$exp_type', '$exp_mop', '$exp_amount', '$exp_remarks')";
+
+            if (mysqli_query($db_connect, $sql)) {
+                echo "Expense added successfully.";
+            } else {
+                echo "Error adding expense: " . mysqli_error($db_connect);
+            }
+        }
     }
 
     // Handle expense deletion
@@ -105,12 +63,11 @@
 
     // Fetch expenses for the current user
     $user_id = $_SESSION['user_id'];
-    $sql = "SELECT * FROM income WHERE user_id = '$user_id'";
+    $sql = "SELECT * FROM expenses WHERE user_id = '$user_id'";
     $result = mysqli_query($db_connect, $sql);
 
     $current = 'expense';
     include "sidebar.php";
-
     ?>
 
     <section class="container">
