@@ -1,4 +1,4 @@
-.modal-bg, .mod_confirm {
+.modal-bg, .mod_confirm, .modal_bg_edit {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
@@ -88,7 +88,7 @@
     font-weight: bolder;
 }
 
-.btn_create {
+.btn_modal {
     width: 100%;
     background: var(--primary-color-light);
     border: none;

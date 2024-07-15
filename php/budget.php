@@ -59,7 +59,7 @@
             <div class="page_header">
                 <div class="output_headers">
                     <h1>Budget Plan</h1>
-                    <button class="create_new btns" id="create_new">
+                    <button class="create_new btns" id="btn_new">
                         <i class='bx bx-plus'></i>
                         <span>ADD NEW</span>
                     </button>
@@ -91,11 +91,11 @@
 
         <?php include 'modals.php'; ?>
 
-        <div class="modal-bg">
+        <div class="modal-bg" id="#modal_1">
             <div class="modal-content bdgt-content">
                 <div class="title">
                     <h2>Create a Budget Plan</h2>
-                    <i class='bx bx-x btn_cancel'></i>
+                    <i class='bx bx-x btn_cancel btn_c1'></i>
                 </div>
 
                 <form action="" method="post">
