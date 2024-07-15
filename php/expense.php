@@ -79,7 +79,9 @@
     }*/
 
     include '../backend/db_functions.php';
-    
+    if(!isset($_SESSION['user_uname'])){
+        header('Location: ../backend/invalid_access.php');
+    }
     // Handle expense addition
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_expense'])) {
         $exp_date = $_POST['exp_date'];

@@ -1,4 +1,8 @@
+<?php
+    include("../backend/sidebar_backend.php");
+?>
 <nav class="sidebar">
+
     <header> 
         <div class="image-text">
             <span class="image">
@@ -8,8 +12,8 @@
             <div class="text header-text">
                 <!-- INPUT!!! -->
                  <!-- USE SESSION -->
-                <span class="uname"><?php echo 11//$_SESSION['user_uname']?></span>
-                <span class="userID">UID: <?php echo 11//$_SESSION['user_id']?></span>
+                <span class="uname"><?php echo $_SESSION['user_uname']?></span>
+                <span class="userID">UID: <?php print_UID($_SESSION['user_id'])?></span>
             </div>
         </div>
 
@@ -72,8 +76,8 @@
             </ul>
         </div>
         <div class="bottom-content">
-            <li class="../nav-link">
-                <a href="../index.php" id="log_out" title="Log Out">
+            <li class="nav-link">
+                <a href="../php/logout.php" id="">
                     <i class='bx bxs-log-out icon' ></i>
                     <span class="text nav-text">Log Out</span>
                 </a>

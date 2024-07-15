@@ -1,12 +1,9 @@
 <?php
     session_start();
-    /*
-    session_start();
-    // Check if the user is logged in
-    /*if (!isset($_SESSION['user_id'])) {
+    if (!isset($_SESSION['user_id'])) {
         header("Location: ../backend/invalid_access.php"); // Redirect to login if not logged in
         exit();
-    }*/
+    }
 
     $user = 11;
     $err_create = array(False, False, False, False);
@@ -26,7 +23,7 @@
         $rmss_data[3] = date('Y-m-d', strtotime($ldate));
 
         insertRMShare($user, $rmss_data, $rmss_util);
-        /*
+      
         if (empty($rmss_title)) {
             $err_create[0] = True;
         }
@@ -47,7 +44,7 @@
             if (empty($value)) {
                 $rmss_bills[$key] = 0;
             }
-        }*/
+        }
     }
 ?>
 
