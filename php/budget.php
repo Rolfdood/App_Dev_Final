@@ -9,7 +9,7 @@
     }*/
 
     $err_create_title = False;
-    if(!isset($_SESSION['user_uname'])){
+    if(!isset($_SESSION['user_id'])){
         header('Location: ../backend/invalid_access.php');
     }
     if (isset($_POST['btn_create'])) {

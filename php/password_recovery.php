@@ -8,7 +8,7 @@ $error = [
 $pass_regex = '/^(?=.*[0-9])(?=.*[\W_]).{8,}$/';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['confirm'])) {
-  include '../backend/db_functions.php'; // Ensure db_connect is correctly initialized
+  include '../backend/db_functions.php'; 
 
   $email = $_POST['email'];
   $newpass = $_POST['password'];

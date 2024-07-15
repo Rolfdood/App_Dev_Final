@@ -8,16 +8,14 @@
   if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       if (isset($_POST['login'])) {
           $loginSuccessful = validate_login($_POST['uname'], $_POST['password'], $error);
-          
           if ($loginSuccessful) {
               // Set session variables or other actions for successful login
-              $_SESSION['user_uname'] = get_UID($_POST['uname']);
+              $_SESSION['user_id'] = get_UID($_POST['uname']);
               header('Location: dashboard.php');
               exit();
           }
       }
   }
-
 ?>
 
 

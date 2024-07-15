@@ -1,20 +1,20 @@
 <?php
     session_start();
     //check for the session UID
-    if(!isset($_SESSION['user_uname'])){
+    if(!isset($_SESSION['user_id'])){
         header('Location: ../backend/invalid_access.php');
     } else {
         //retrieve UID from db
         include '../backend/db_functions.php';
         
-        $username = $_SESSION['user_uname'];
-        $check_query = "SELECT * FROM user WHERE user_uname = '$username'";
+        $UID = $_SESSION['user_id'];
+        $check_query = "SELECT * FROM user WHERE user_id = '$UID'";
         
         $result = mysqli_query($db_connect, $check_query);
         
         $row = mysqli_fetch_assoc($result);
 
-        $_SESSION['user_id'] = $row['user_id'];
+        $_SESSION['user_uname'] = $row['user_uname'];
     }
 ?>
 
