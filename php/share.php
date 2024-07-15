@@ -1,28 +1,29 @@
 <?php
-    /*
     session_start();
-    // Check if the user is logged in
-    /*if (!isset($_SESSION['user_id'])) {
+    if (!isset($_SESSION['user_id'])) {
         header("Location: ../backend/invalid_access.php"); // Redirect to login if not logged in
         exit();
-    }*/
+    }
 
     $user = 11;
     $err_create = array(False, False, False, False);
  
     include '../backend/rmshare_backend.php';
     if (isset($_POST['btn_create'])) {
-        $rmss_title = htmlspecialchars(strip_tags($_POST['rmss_title']));
-        $rmss_tenants = htmlspecialchars(strip_tags($_POST['rmss_tenants']));
-        $rmss_sdate = htmlspecialchars(strip_tags($_POST['rmss_sdate']));
-        $rmss_ldate = htmlspecialchars(strip_tags($_POST['rmss_ldate']));
-        $rmss_bills[0] = htmlspecialchars(strip_tags($_POST['rmss_uelec']));
-        $rmss_bills[1] = htmlspecialchars(strip_tags($_POST['rmss_uwater']));
-        $rmss_bills[2] = htmlspecialchars(strip_tags($_POST['rmss_uothers']));
-        $rmss_desc = htmlspecialchars(strip_tags($_POST['rmss_desc']));
+        $rmss_data[0] = htmlspecialchars(strip_tags($_POST['rmss_title']));
+        $rmss_data[1] = htmlspecialchars(strip_tags($_POST['rmss_tenants']));
+        $sdate = htmlspecialchars(strip_tags($_POST['rmss_sdate']));
+        $ldate = htmlspecialchars(strip_tags($_POST['rmss_ldate']));
+        $rmss_data[4] = htmlspecialchars(strip_tags($_POST['rmss_desc']));
+        $rmss_util[0] = htmlspecialchars(strip_tags($_POST['rmss_uelec']));
+        $rmss_util[1] = htmlspecialchars(strip_tags($_POST['rmss_uwater']));
+        $rmss_util[2] = htmlspecialchars(strip_tags($_POST['rmss_uothers']));
+        
+        $rmss_data[2] = date('Y-m-d', strtotime($sdate));
+        $rmss_data[3] = date('Y-m-d', strtotime($ldate));
 
-        insertRMShare($user, $rmss_title, $rmss_tenants, $rmss_sdate, $rmss_ldate, $rmss_bills, $rmss_desc);
-        /*
+        insertRMShare($user, $rmss_data, $rmss_util);
+      
         if (empty($rmss_title)) {
             $err_create[0] = True;
         }
@@ -43,7 +44,7 @@
             if (empty($value)) {
                 $rmss_bills[$key] = 0;
             }
-        }*/
+        }
     }
 ?>
 
@@ -107,7 +108,7 @@
             <div class="modal-content rmss-content">
                 <div class="title">
                     <h2>Create a Room Sharing Sheet</h2>
-                    <button class="btn_cancel">+</button>
+                    <i class='bx bx-x btn_cancel'></i>
                 </div>
 
                 <form action="" method="post">

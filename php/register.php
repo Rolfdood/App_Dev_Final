@@ -94,17 +94,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           </div>
         </div>
 
-        <div class="row_fields checkbox">
+        <div class="row_remember_me">
           <input type="checkbox" name="agree" id="agree" required>
           <label for="agree">Agree with <a href="../php/terms.php">Terms and Services</a> and <a href="../php/privacy.php">Privacy Policy</a></label>
         </div>
 
-        <div class="row_fields">
-          <label>Already have and account? <a href="../php/login.php">Login.</a></label>
-        </div>
-
         <div class="row_field_row">
           <input type="submit" class="btn" id="register" name="register" value="REGISTER">
+        </div>
+
+        <div class="row_remember_me">
+          <label>Already have and account? <a href="../php/login.php">Login.</a></label>
         </div>
       </form>
     </section>

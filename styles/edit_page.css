@@ -1,0 +1,65 @@
+section {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    color: var(--text-color); 
+}
+
+.edit_section {
+    height: inherit;
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.edit_content {
+    width: 1000px;
+    padding: 100px;
+    
+    box-shadow: 0 0 2px var(--primary-color);
+    border-radius: 25px;
+    background: var(--container-color);
+}
+
+.edit_fields {
+    display: flex;
+    flex-direction: column;
+
+    margin: 15px 0;
+}
+
+.edit_fields label {
+    font-size: 18px;
+}
+
+.edit_fields input {
+    height: 40px;
+    text-indent: 20px;
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+}
+
+.btns {
+    margin-top: 30px;
+}
+
+.btn_update {
+    height: 50px !important;
+    font-size: 15px;
+    background: var(--container-color);
+    color: var(--text-color) !important;
+    transition: var(--transition-1);
+}
+
+.btn_update:hover {
+    background: var(--primary-color);
+    color: var(--container-color) !important;
+    font-weight: bold;
+}
+
+hr {
+    margin-bottom: 20px;
+    border-color: wheat;
+}

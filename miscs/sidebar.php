@@ -1,8 +1,4 @@
-<?php
-    include("../backend/sidebar_backend.php");
-?>
 <nav class="sidebar">
-
     <header> 
         <div class="image-text">
             <span class="image">
@@ -12,8 +8,8 @@
             <div class="text header-text">
                 <!-- INPUT!!! -->
                  <!-- USE SESSION -->
-                <span class="uname"><?php echo $_SESSION['user_uname']?></span>
-                <span class="userID">UID: <?php print_UID($_SESSION['user_id'])?></span>
+                <span class="uname"><?php echo 11//$_SESSION['user_uname']?></span>
+                <span class="userID">UID: <?php echo 11//$_SESSION['user_id']?></span>
             </div>
         </div>
 
@@ -31,25 +27,25 @@
             </li> -->
             <ul class="menu-links">
                 <li class="nav-link" <?php if ($current == 'dashboard') echo 'id="current"'; ?>>
-                    <a href="dashboard.php" id="" title="Dashboard">
+                    <a href="../php/dashboard.php" id="" title="Dashboard">
                         <i class='bx bxs-dashboard icon' ></i>
                         <span class="text nav-text">Dashboard</span>
                     </a>
                 </li>
                 <li class="nav-link" <?php if ($current == 'profile') echo 'id="current"'; ?>>
-                    <a href="profile.php" id="" title="Profile">
+                    <a href="../php/profile.php" id="" title="Profile">
                         <i class='bx bxs-user icon' ></i>
                         <span class="text nav-text">Profile</span>
                     </a>
                 </li>
                 <li class="nav-link" <?php if ($current == 'expense') echo 'id="current"'; ?>>
-                    <a href="expense.php" id="" title="Expenses">
+                    <a href="../php/expense.php" id="" title="Expenses">
                         <i class='bx bxs-credit-card-alt icon' ></i>
                         <span class="text nav-text">Expenses</span>
                     </a>
                 </li>
                 <li class="nav-link" <?php if ($current == 'income') echo 'id="current"'; ?>>
-                    <a href="income.php" id="" title="Income">
+                    <a href="../php/income.php" id="" title="Income">
                         <i class='bx bxs-coin icon' ></i>
                         <span class="text nav-text">Income</span>
                     </a>
@@ -62,13 +58,13 @@
                     </a>
                 </li> -->
                 <li class="nav-link" <?php if ($current == 'budget') echo 'id="current"'; ?>>
-                    <a href="budget.php" id="" title="Budget Plan">
+                    <a href="../php/budget.php" id="" title="Budget Plan">
                         <i class='bx bxs-note icon' ></i>
                         <span class="text nav-text">Budget Plan</span>
                     </a>
                 </li>
                 <li class="nav-link" <?php if ($current == 'rmshare') echo 'id="current"'; ?>>
-                    <a href="share.php" id="" title="Room Share">
+                    <a href="../php/share.php" id="" title="Room Share">
                         <i class='bx bxs-home-circle icon' ></i>
                         <span class="text nav-text">Room Share</span>
                     </a>
@@ -76,8 +72,8 @@
             </ul>
         </div>
         <div class="bottom-content">
-            <li class="nav-link">
-                <a href="../php/logout.php" id="">
+            <li class="../nav-link">
+                <a href="../index.php" id="log_out" title="Log Out">
                     <i class='bx bxs-log-out icon' ></i>
                     <span class="text nav-text">Log Out</span>
                 </a>

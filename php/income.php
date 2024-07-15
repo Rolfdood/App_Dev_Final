@@ -20,6 +20,8 @@
         exit();
     }
 
+    include '../backend/db_conn.php';
+
     // Handle income addition
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_income'])) {
         $inc_date = $_POST['inc_date'];
