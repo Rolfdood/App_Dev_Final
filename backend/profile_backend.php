@@ -26,7 +26,7 @@ if (!isset($_SESSION['user_uname'])) {
   exit;
 }
 
-include '../backend/db_functions.php';
+include '../backend/db_conn.php';
 
 // Fetch user data from the database
 $query = "SELECT * FROM user WHERE user_id = ?";

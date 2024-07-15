@@ -4,7 +4,6 @@
     session_start();
     $user = 11;//$_SESSION['user_id'];
     include '../backend/budget_backend.php';
-    session_start();
     // Check if the user is logged in
     if (!isset($_SESSION['user_id'])) {
         header("Location: ../backend/invalid_access.php"); // Redirect to login if not logged in

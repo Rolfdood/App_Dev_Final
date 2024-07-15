@@ -5,7 +5,7 @@
         header('Location: ../backend/invalid_access.php');
     } else {
         //retrieve UID from db
-        include '../backend/db_functions.php';
+        include '../backend/db_conn.php';
         
         $UID = $_SESSION['user_id'];
         $check_query = "SELECT * FROM user WHERE user_id = '$UID'";
