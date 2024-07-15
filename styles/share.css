@@ -1,3 +1,16 @@
-.contents {
-    margin-top: 20px;
+.tbl_rtitle {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.rmsh_title {
+    font-weight: bold;
+    font-size: large;
+}
+
+.rmsh_desc {
+    font-style: italic;
+    font-size: 12px;
 }

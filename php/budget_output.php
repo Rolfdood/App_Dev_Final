@@ -1,14 +1,13 @@
 <?php
     session_start();
-    include '../backend/budget_backend.php';
-
-    $bud_id = $_GET['bud'];
-    $budget_info = getSheetInfo($bud_id);
     // Check if the user is logged in
     /*if (!isset($_SESSION['user_id'])) {
         header("Location: ../backend/invalid_access.php"); // Redirect to login if not logged in
         exit();
     }*/
+    
+    include '../backend/budget_backend.php';
+    include '../backend/budget_output_backend.php';
 ?>
 
 <!DOCTYPE html>
@@ -41,15 +40,15 @@
                     </div>
 
                     <div class="output_btn">
-                        <button class="btn_add btns" id="create_new" name="btn_add">ADD ITEM</button>
-                        <button class="btn_edit btns" id="btn_edit" name="btn_edit">EDIT</button>
+                        <button class="btn_add btns" id="btn_new" name="btn_add">ADD ITEM</button>
+                        <button class="btn_edit btns" id="btn_edit_main" name="btn_edit_main">EDIT</button>
                         <button class="btn_delete btns" id="btn_delete" name="btn_delete">DELETE</button>
                     </div>
                 </div>
                 <hr>
             </div>
 
-            <div class="output_data">
+            <div class="contents">
                 <?php 
                     if (!checkData("SELECT * FROM budget_item WHERE bud_id = $bud_id")) {
                         ?> <div class="output_data">
@@ -61,7 +60,7 @@
                             <th>NO.</th>
                             <th>ITEM</th>
                             <th>PURPOSE</th>
-                            <th>AMOUNT</th>
+                            <th class="col_amnt">AMOUNT</th>
                             <th>EDIT OR DELETE</th>
                         </tr>
 
@@ -73,45 +72,95 @@
             </div>
         </section>
 
-        <div class="modal-bg">
+        <div class="modal-bg" id="modal_1">
             <div class="modal-content bdgt-content">
                 <div class="title">
                     <h2>Add Item</h2>
-                    <i class='bx bx-x btn_cancel'></i>
+                    <i class='bx bx-x btn_cancel btn_c1'></i>
                 </div>
 
                 <form action="" method="post">
                 <div class="modal_field_rows">
                         <div class="modal_fields">
-                            <label for="rmss_desc">Item:</label>
-                            <input type="text" name="modal_desc" id="modal_desc" class="modal_desc">
+                            <label for="rbud_item_desc">Item: <b class="req_field">*</b></label>
+                            <input type="text" name="modal_item" id="modal_item"
+                                <?php if ($err_bud_items[1] == True) echo 'class="err_field"' ?>
+                            >
+                            <?php if ($err_bud_items[1] == True) echo '<span class="err_message">Please enter an item name.</span>'; ?>
                         </div>
 
                         <div class="modal_fields">
-                            <label for="rmss_desc">Purpose:</label>
-                            <input type="text" name="modal_desc" id="modal_desc" class="modal_desc">
+                            <label for="rbud_item_desc">Purpose: <b class="req_field">*</b></label>
+                            <input type="text" name="modal_purp" id="modal_purp"
+                                <?php if ($err_bud_items[2] == True) echo 'class="err_field"' ?>
+                            >
+                            <?php if ($err_bud_items[2] == True) echo '<span class="err_message">Please enter its purpose.</span>'; ?>
                         </div>
 
                         <div class="modal_fields">
-                            <label for="rmss_desc">Amount:</label>
-                            <input type="text" name="modal_desc" id="modal_desc" class="modal_desc">
+                            <label for="rbud_item_desc">Amount: <b class="req_field">*</b></label>
+                            <input type="text" name="modal_amnt" id="modal_amnt" 
+                                <?php if ($err_bud_items[3] == True) echo 'class="err_field"' ?>
+                            >
+                            <?php if ($err_bud_items[3] == True) echo '<span class="err_message">Please enter its amount.</span>'; ?>
                         </div>
                     </div>    
 
                     <div class="modal_field_rows">
                         <div class="modal_fields">
-                            <label for="rmss_desc">Note:</label>
+                            <label for="rbud_item_desc">Note:</label>
                             <input type="text" name="modal_desc" id="modal_desc" class="modal_desc">
                         </div>
                     </div>
 
                     <div class="modal_field_rows modal_btns">
-                        <input type="submit" value="ADD ITEM" name="btn_create" class="btn_create" id="btn_create">
+                        <input type="submit" value="ADD ITEM" name="btn_create" class="btn_modal btn_create" id="btn_create">
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="modal_bg_edit" id="#modal_2">
+            <div class="modal-content bdgt-content">
+                <div class="title">
+                    <h2>Update Budget Plan Details</h2>
+                    <i class='bx bx-x btn_cancel btn_c2'></i>
+                </div>
+
+                <form action="" method="post">
+                    <div class="modal_field_rows">
+                        <div class="modal_fields">
+                            <label for="modal_title">Title: <b class="req_field">*</b></label>
+                            <input type="text" name="modal_title" id="modal_title"
+                                <?php 
+                                    if ($err_bud_title[1] == True) echo 'class="err_field"';   
+                                    echo 'value="' . $budget_info['bud_title'] . '"';
+                                ?>
+                            >
+                            <?php if ($err_bud_title[1] == True) echo '<span class="err_message">Please enter a title. Less than 50 characters only.</span>'; ?>
+                        </div>
+                    </div>
+                    
+                    <div class="modal_field_rows">
+                        <div class="modal_fields">
+                            <label for="rmss_desc">Description:</label>
+                            <input type="text" name="modal_desc" id="modal_desc" class="modal_desc 
+                            <?php 
+                                if ($err_bud_title[2] == True) echo 'err_field';
+                            ?>"
+                            <?php echo 'value="' . $budget_info['bud_desc'] . '"'; ?>>
+                            <?php if ($err_bud_title[2] == True) echo '<span class="err_message">Characters must be less than 300 characters only.</span>'; ?>
+                        </div>
+                    </div>
+
+                    <div class="modal_field_rows modal_btns">
+                        <input type="submit" value="UPDATE" name="btn_update" class="btn_modal btn_update" id="btn_update">
                     </div>
                 </form>
             </div>
         </div>
 
         <script type="text/javascript" src="../scripts/modal.js"></script>
+        <script type="text/javascript" src="../scripts/budget.js"></script>
     </body>
 </html>

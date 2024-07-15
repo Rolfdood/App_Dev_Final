@@ -49,7 +49,6 @@ body {
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 30px;
 }
 
 .tbl_rnum {
@@ -82,4 +81,9 @@ td {
 
 .bud_btns {
     width: 200px;
+}
+
+.bud_date_modified {
+    font-size: 12px;
+    margin-bottom: 5px;
 }

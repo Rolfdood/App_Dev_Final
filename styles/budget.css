@@ -9,3 +9,25 @@
     justify-content: center;
 }
 
+.col_amnt {
+    width: 200px;
+}
+
+.bud_item_amount,
+.bud_item_purp {
+    text-align: center;
+}
+
+.bud_item_name {
+    font-weight: bold;
+}
+
+.bud_title {
+    font-weight: bold;
+    font-size: large;
+}
+
+.bud_desc {
+    font-style: italic;
+    font-size: 14px;
+}

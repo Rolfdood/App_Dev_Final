@@ -43,6 +43,7 @@
             <hr>
             <a href="../backend/invalid_access.php">ERROR</a>
             <a href="budget_output.php">OUTPUT</a>
+            <a href="../miscs/edit_data.php">EDITPAGE</a>
         </section>
     </body>
 </html>
