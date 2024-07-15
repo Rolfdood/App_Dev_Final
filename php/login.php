@@ -8,17 +8,15 @@
   if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       if (isset($_POST['login'])) {
           $loginSuccessful = validate_login($_POST['uname'], $_POST['password'], $error);
-          
           if ($loginSuccessful) {
+            
               // Set session variables or other actions for successful login
-              $_SESSION['user_uname'] = get_UID($_POST['uname']);
-              echo 'Hello' . $_SESSION['user_uname'];
+              $_SESSION['user_id'] = get_UID($_POST['uname']);
               header('Location: dashboard.php');
               exit();
           }
       }
   }
-
 ?>
 
 
@@ -58,11 +56,15 @@
               <label for="remember_me">Remember Me</label>
             </div>
 
+            <input type="submit" class="btn" value="LOGIN" name="login" required> 
+
+            <div class="row_remember_me">
+              <a href="../php/password_recovery.php">Forgot your password?</a>
+            </div>
+
             <div class="row_remember_me">
               <label>Don't have and account? <a href="../php/register.php">Register.</a></label>
             </div>
-
-            <input type="submit" class="btn" value="LOGIN" name="login" required> 
         </form> 
       </section>
     </div>
