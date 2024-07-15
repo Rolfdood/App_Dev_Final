@@ -16,9 +16,11 @@
             return false;
         }
         
+
         mysqli_close( $db_connect );
         return $valid;
     }
+
 
     function getSheetInfo($table, $column, $sheet_id) {
         include 'db_conn.php';
