@@ -90,3 +90,51 @@ hr {
   width: 100%;
   margin: 10px 0;
 }
+
+a {
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+#dob {
+  text-indent: 10px !important;
+}
+
+.recovery-cont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.recovery {
+  height: 500px !important;
+  width: 1000px;
+  padding: 100px;
+  
+  box-shadow: 0 0 2px var(--primary-color);
+  border-radius: 25px;
+  background: var(--container-color);
+}
+
+.inheritFooter {
+  width: inherit;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.footer-contents {
+  position: absolute;
+  bottom: 0;
+}
+
+.footer {
+  position: relative;
+  bottom: 0;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.footer span {
+  font-size: 13px;
+}

@@ -49,7 +49,7 @@
         <!-- NAVBAR -->
         <?php 
             $current = 'budget';
-            include "sidebar.php"; 
+            include "../miscs/sidebar.php"; 
         ?>
 
         <!-- CONTAINER -->
@@ -87,7 +87,7 @@
             </div>
         </section>
 
-        <?php include 'modals.php'; ?>
+        <?php include '../miscs/modals.php'; ?>
 
         <div class="modal-bg" id="#modal_1">
             <div class="modal-content bdgt-content">

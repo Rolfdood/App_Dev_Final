@@ -34,7 +34,7 @@
         <!-- NAVBAR -->
         <?php 
             $current = 'dashboard';
-            include "sidebar.php"; 
+            include "../miscs/sidebar.php";  
         ?>
 
         <!-- CONTAINER -->

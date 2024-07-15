@@ -22,7 +22,7 @@
                 </td>
                 <td class="bud_btns">
                     <div class="tbl_rbtns">
-                        <a href="budget_output.php?bud=<?php echo $row['bud_id']; ?>" class="btn_edit btns" id="btn_edit">OPEN</a>
+                        <a href="../miscs/budget_output.php?bud=<?php echo $row['bud_id']; ?>" class="btn_edit btns" id="btn_edit">OPEN</a>
                         <a href="#" class="btn_delete btns" id="btn_delete">DELETE</a>
                     </div>
                 </td>

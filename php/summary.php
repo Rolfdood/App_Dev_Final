@@ -12,7 +12,7 @@
     <?php
     session_start();
     $current = 'summary';
-    include "sidebar.php";
+    include "../miscs/sidebar.php"; 
 
 
     // Check if the user is logged in
