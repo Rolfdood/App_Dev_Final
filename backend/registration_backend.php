@@ -110,13 +110,6 @@ function database_email_check($reg_info, &$error)
   mysqli_close($db_connect);
 }
 
-function encryptPassword($password) {
-  /*
-    Encrypts a string entered and returns it.
-  */
-
-  return crypt($password, PASSWORD_DEFAULT);
-}
 
 function validate_dob($dob) {
   /*

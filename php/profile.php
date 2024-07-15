@@ -1,24 +1,5 @@
-<?php
-session_start();
-if (!isset($_SESSION['user_uname'])) {
-    header('Location: ../backend/invalid_access.php');
-} else {
-    include '../backend/db_functions.php';
-    $query = "SELECT * FROM user WHERE user_id = ?";
-    $stmt = mysqli_prepare($db_connect, $query);
-    $UID = $_SESSION['user_id'];
-    mysqli_stmt_bind_param($stmt, 's', $UID);
-    mysqli_stmt_execute($stmt);
-    $result = mysqli_stmt_get_result($stmt);
-    $row = mysqli_fetch_assoc($result);
-    $username = $row['user_uname'];
-    $fname = $row['user_fname'];
-    $lname = $row['user_lname'];
-    $email = $row['user_email'];
-    $dob = $row['user_dob'];
-}
+<?php include '../backend/profile_backend.php'; ?>
 
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -51,31 +32,84 @@ if (!isset($_SESSION['user_uname'])) {
                     <img src="../src/user_default.png" class="image" alt="logo">
                 </span>
                 <input type="submit" value="Edit" name="edit_pfp">
+                <input type="submit" value="Save" name="save_pfp">
             </div>
             <div>
                 <h2>Username</h2>
-                <h3><?php echo $username ?></h3>
-                <input type="submit" value="Edit" name="edit_uname">
+                <input type="text" name="username" value="<?php echo htmlspecialchars($username); ?>" <?php echo !$edit_uname ? "readonly" : ""; ?>>
+                <?php if ($edit_uname) : ?>
+                    <input type="submit" value="Save" name="save_uname">
+                    <input type="submit" value="Cancel" name="cancel_uname">
+                <?php else : ?>
+                    <input type="submit" value="Edit" name="edit_uname">
+                <?php endif; ?>
+                <?php if ($error['uname']) : ?>
+                    <div class="error-message">Invalid username format.</div>
+                <?php endif; ?>
             </div>
             <div>
                 <h2>First Name</h2>
-                <h3><?php echo $fname ?></h3>
-                <input type="submit" value="Edit" name="edit_fname">
+                <input type="text" name="fname" value="<?php echo htmlspecialchars($fname); ?>" <?php echo !$edit_fname ? "readonly" : ""; ?>>
+                <?php if ($edit_fname) : ?>
+                    <input type="submit" value="Save" name="save_fname">
+                    <input type="submit" value="Cancel" name="cancel_fname">
+                <?php else : ?>
+                    <input type="submit" value="Edit" name="edit_fname">
+                <?php endif; ?>
+                <?php if ($error['fname']) : ?>
+                    <div class="error-message">Invalid first name format.</div>
+                <?php endif; ?>
             </div>
             <div>
                 <h2>Last Name</h2>
-                <h3><?php echo $lname ?></h3>
-                <input type="submit" value="Edit" name="edit_lname">
+                <input type="text" name="lname" value="<?php echo htmlspecialchars($lname); ?>" <?php echo !$edit_lname ? "readonly" : ""; ?>>
+                <?php if ($edit_lname) : ?>
+                    <input type="submit" value="Save" name="save_lname">
+                    <input type="submit" value="Cancel" name="cancel_lname">
+                <?php else : ?>
+                    <input type="submit" value="Edit" name="edit_lname">
+                <?php endif; ?>
+                <?php if ($error['lname']) : ?>
+                    <div class="error-message">Invalid last name format.</div>
+                <?php endif; ?>
             </div>
             <div>
                 <h2>Email Address</h2>
-                <h3><?php echo $email ?></h3>
-                <input type="submit" value="Edit" name="edit_email">
+                <input type="text" name="email" value="<?php echo htmlspecialchars($email); ?>" <?php echo !$edit_email ? "readonly" : ""; ?>>
+                <?php if ($edit_email) : ?>
+                    <input type="submit" value="Save" name="save_email">
+                    <input type="submit" value="Cancel" name="cancel_email">
+                <?php else : ?>
+                    <input type="submit" value="Edit" name="edit_email">
+                <?php endif; ?>
+                <?php if ($error['email']) : ?>
+                    <div class="error-message">Invalid email format.</div>
+                <?php endif; ?>
             </div>
             <div>
                 <h2>Birth Date</h2>
-                <h3><input type="date" value="<?php echo $dob ?>" <?php if (!isset($_POST['edit_dob'])) echo "readonly" ?>></h3>
-                <input type="submit" value="Edit" name="edit_dob">
+                <h3><input type="date" name="dob" value="<?php echo htmlspecialchars($dob); ?>" <?php echo !$edit_dob ? "readonly" : ""; ?>></h3>
+                <?php if ($edit_dob) : ?>
+                    <input type="submit" value="Save" name="save_dob">
+                    <input type="submit" value="Cancel" name="cancel_dob">
+                <?php else : ?>
+                    <input type="submit" value="Edit" name="edit_dob">
+                <?php endif; ?>
+            </div>
+            <div>
+                <h2>Change Password</h2>
+                <?php if ($edit_password) : ?>
+                    <input type="password" name="new_password" placeholder="New Password">
+                    <input type="password" name="confirm_password" placeholder="Confirm Password">
+                    <input type="submit" value="Save" name="save_password">
+                    <input type="submit" value="Cancel" name="cancel_password">
+                <?php else : ?>
+                    <input type="password" value="********" readonly>
+                    <input type="submit" value="Edit" name="edit_password">
+                <?php endif; ?>
+                <?php if ($error['password']) : ?>
+                    <div class="error-message">Invalid password format.</div>
+                <?php endif; ?>
             </div>
         </form>
     </section>

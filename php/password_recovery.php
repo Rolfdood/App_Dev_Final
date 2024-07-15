@@ -8,7 +8,7 @@ $error = [
 $pass_regex = '/^(?=.*[0-9])(?=.*[\W_]).{8,}$/';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['confirm'])) {
-  include '../backend/db_functions.php'; 
+  include '../backend/db_functions.php';
 
   $email = $_POST['email'];
   $newpass = $_POST['password'];
@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['confirm'])) {
       $error['check_pass'] = true;
     } else {
       //REGEX validation
-      if(preg_match($pass_regex,$newpass)){
+      if (preg_match($pass_regex, $newpass)) {
         // Update password
         $hashed_pass = crypt($newpass, PASSWORD_DEFAULT);
         $update_query = "UPDATE user SET user_password = ? WHERE user_email = ?";
@@ -39,9 +39,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['confirm'])) {
 
         if (!mysqli_stmt_execute($update_stmt)) {
           $error['password'] = true;
-          // Optionally check error message from SQL: mysqli_stmt_error($update_stmt);
         }
-      } else{
+      } else {
         $error['password'] = true;
       }
     }
@@ -58,6 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['confirm'])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -65,6 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['confirm'])) {
   <link rel="stylesheet" href="../styles/general.css">
   <link rel="stylesheet" href="../styles/login_reg.css">
 </head>
+
 <body>
   <div>
     <section class="login forms">
@@ -74,17 +75,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['confirm'])) {
       <form method="post">
         <div class="row_fields">
           <label for="email">Email</label>
-          <input type="text" name="email" class="text <?php if($error['email']) echo "err_field"?>" value="<?php echo @$_POST['email'] ?>" required>
+          <input type="text" name="email" class="text <?php if ($error['email']) echo "err_field" ?>" value="<?php echo @$_POST['email'] ?>" required>
           <?php if ($error['email']) echo '<span class="err_message">Invalid email</span>'; ?>
         </div>
         <div class="row_fields">
           <label for="password" class="">Password</label>
-          <input type="password" name="password" class="text <?php if($error['password']) echo "err_field"?>" value="<?php echo @$_POST['password'] ?>" required>
+          <input type="password" name="password" class="text <?php if ($error['password']) echo "err_field" ?>" value="<?php echo @$_POST['password'] ?>" required>
           <?php if ($error['password']) echo '<span class="err_message">Invalid Password</span>'; ?>
         </div>
         <div class="row_fields">
           <label for="check_pass">Confirm password</label>
-          <input type="password" name="check_pass" class="text <?php if($error['check_pass']) echo "err_field"?>" value="<?php echo @$_POST['check_pass'] ?>" required>
+          <input type="password" name="check_pass" class="text <?php if ($error['check_pass']) echo "err_field" ?>" value="<?php echo @$_POST['check_pass'] ?>" required>
           <?php if ($error['check_pass']) echo '<span class="err_message">Password does not match</span>'; ?>
         </div>
         <div>
@@ -94,4 +95,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['confirm'])) {
     </section>
   </div>
 </body>
+
 </html>
