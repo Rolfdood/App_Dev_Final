@@ -24,7 +24,7 @@
 
     <div class="menu-bar">
         <div class="menu">
-            <!--
+            <!-- TO BE IMPLEMENTED SOON
             <li class="search-box">
                     <i class='bx bx-search icon'></i>                           
                     <input type="sear   ch" name="" id="" placeholder="SEARCH">
@@ -55,7 +55,7 @@
                     </a>
                 </li>
                 <li class="nav-link" <?php if ($current == 'summary') echo 'id="current"'; ?>>
-                    <a href="summary.php" id="">
+                    <a href="summary.php" id="" title="Summary">
                         <i class='bx bxs-bar-chart-alt-2 icon' ></i>
                         <span class="text nav-text">Summary</span>
                     </a>
@@ -70,7 +70,7 @@
         </div>
         <div class="bottom-content">
             <li class="nav-link logout">
-                <a href="../php/logout.php" id="">
+                <a href="../php/logout.php" id="" title="Log out">
                     <i class='bx bxs-log-out icon' ></i>
                     <span class="text nav-text">Log Out</span>
                 </a>
