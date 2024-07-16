@@ -67,8 +67,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['confirm'])) {
 </head>
 
 <body>
-  <div>
-    <section class="login forms">
+  <div class="container recovery-cont">
+    <section class="login forms recovery">
       <div class="row_fields">
         <h1>Password Recovery</h1>
       </div>
@@ -89,10 +89,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['confirm'])) {
           <?php if ($error['check_pass']) echo '<span class="err_message">Password does not match</span>'; ?>
         </div>
         <div>
-          <input type="submit" name="confirm" value="Confirm" class="btn">
+          <input type="submit" name="confirm" value="CONFIRM" class="btn">
         </div>
       </form>
     </section>
+
+    <div class="footer inheritFooter">
+      <span class="footer">All rights reserved 2024.</span>
+    </div>
   </div>
 </body>
 

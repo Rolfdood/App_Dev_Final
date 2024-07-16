@@ -14,7 +14,7 @@
             </div>
 
             <div class="modal_field_rows modal_btns">
-                <button class="btn_delete" id="delete">DELETE</button>
+                <button class="btn_delete confirm_del" id="delete">DELETE</button>
                 <button class="btn_cancel2">CANCEL</button>
             </div>
         </div>

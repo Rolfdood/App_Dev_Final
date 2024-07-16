@@ -13,6 +13,8 @@
 .modal-content {  
     background-color: var(--container-color);
     border-radius: 10px;
+    width: 1000px;
+    min-width: 800px;
 }
 
 .budget_info, .confirm_delete_modal,
@@ -93,6 +95,13 @@
     background: var(--primary-color-light);
     border: none;
     border-radius: 5px; 
+    transition: var(--transition-2);
+}
+
+.btn_modal:hover {
+    font-weight: bold;
+    background: var(--primary-color);
+    color: var(--container-color);
 }
 
 .btn_cancel {

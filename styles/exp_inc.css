@@ -1,0 +1,7 @@
+.no_data {
+    text-align: center;
+}
+
+input, select {
+    height: 40px;
+}

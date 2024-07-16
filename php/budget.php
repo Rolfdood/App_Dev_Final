@@ -1,8 +1,6 @@
 <?php
-
-
     session_start();
-    $user = 11;//$_SESSION['user_id'];
+    $user = $_SESSION['user_id'];
     include '../backend/budget_backend.php';
     // Check if the user is logged in
     if (!isset($_SESSION['user_id'])) {
@@ -49,7 +47,7 @@
         <!-- NAVBAR -->
         <?php 
             $current = 'budget';
-            include "sidebar.php"; 
+            include "../miscs/sidebar.php"; 
         ?>
 
         <!-- CONTAINER -->
@@ -76,7 +74,7 @@
                         <tr class="tbl_headers">
                             <th>NO.</th>
                             <th>BUDGET</th>
-                            <th>EDIT OR DELETE</th>
+                            <th>ACTIONS</th>
                         </tr>
 
                         <?php
@@ -87,7 +85,7 @@
             </div>
         </section>
 
-        <?php include 'modals.php'; ?>
+        <?php include '../miscs/modals.php'; ?>
 
         <div class="modal-bg" id="#modal_1">
             <div class="modal-content bdgt-content">
