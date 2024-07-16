@@ -93,7 +93,7 @@
 
                 <div class="inpFields">
                     <h2>Birth Date</h2>
-                    <h3><input type="date" name="dob" value="<?php echo htmlspecialchars($dob); ?>" <?php echo !$edit_dob ? "readonly" : ""; ?>></h3>
+                    <input type="date" name="dob" value="<?php echo htmlspecialchars($dob); ?>" <?php echo !$edit_dob ? "readonly" : ""; ?>>
                     <?php if ($edit_dob) : ?>
                         <input type="submit" value="Save" name="save_dob">
                         <input type="submit" value="Cancel" name="cancel_dob">
