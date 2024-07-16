@@ -26,15 +26,14 @@
             <h1>Profile</h1>
             <hr>
         </div>
-        <form method="post">
+        <form method="post" class="profile">
             <div>
                 <h2>Profile Picture</h2>
                 <span class="image">
                     <img src="../src/user_default.png" class="image" alt="logo">
                 </span>
-                <input type="submit" value="Edit" name="edit_pfp">
-                <input type="submit" value="Save" name="save_pfp">
             </div>
+
             <div class="inputFields">
                 <div class="inpFields">
                     <h2>Username</h2>
@@ -49,6 +48,7 @@
                         <div class="error-message">Invalid username format.</div>
                     <?php endif; ?>
                 </div>
+
                 <div class="inpFields">
                     <h2>First Name</h2>
                     <input type="text" name="fname" value="<?php echo htmlspecialchars($fname); ?>" <?php echo !$edit_fname ? "readonly" : ""; ?>>
@@ -62,6 +62,7 @@
                         <div class="error-message">Invalid first name format.</div>
                     <?php endif; ?>
                 </div>
+              
                 <div class="inpFields">
                     <h2>Last Name</h2>
                     <input type="text" name="lname" value="<?php echo htmlspecialchars($lname); ?>" <?php echo !$edit_lname ? "readonly" : ""; ?>>
@@ -75,6 +76,7 @@
                         <div class="error-message">Invalid last name format.</div>
                     <?php endif; ?>
                 </div>
+              
                 <div class="inpFields">
                     <h2>Email Address</h2>
                     <input type="text" name="email" value="<?php echo htmlspecialchars($email); ?>" <?php echo !$edit_email ? "readonly" : ""; ?>>
@@ -88,6 +90,7 @@
                         <div class="error-message">Invalid email format.</div>
                     <?php endif; ?>
                 </div>
+
                 <div class="inpFields">
                     <h2>Birth Date</h2>
                     <h3><input type="date" name="dob" value="<?php echo htmlspecialchars($dob); ?>" <?php echo !$edit_dob ? "readonly" : ""; ?>></h3>

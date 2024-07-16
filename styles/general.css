@@ -87,3 +87,8 @@ td {
     font-size: 12px;
     margin-bottom: 5px;
 }
+
+.profile{
+    display: flex;
+    flex-direction: row ;
+}

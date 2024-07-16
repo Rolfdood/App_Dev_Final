@@ -25,23 +25,12 @@
         if (empty($inc_date) || empty($inc_origin) || empty($inc_amount)) {
             echo "Please fill in all required fields.";
         } else {
-            // Check if an income record for this date and user already exists
-            $check_sql = "SELECT * FROM income WHERE user_id = ? AND inc_date = ?";
-            $stmt = mysqli_prepare($db_connect, $check_sql);
-            mysqli_stmt_bind_param($stmt, "is", $user_id, $inc_date);
-            mysqli_stmt_execute($stmt);
-            $result = mysqli_stmt_get_result($stmt);
+            // Insert income into database
+            $sql = "INSERT INTO income (user_id, inc_date, inc_origin, inc_type, inc_mot, inc_amount, inc_remarks)
+                    VALUES ('$user_id', '$inc_date', '$inc_origin', '$inc_type', '$inc_mot', '$inc_amount', '$inc_remarks')";
 
-            if (mysqli_num_rows($result) > 0) {
-                // Update existing income record
-                $update_sql = "UPDATE income SET inc_origin = ?, inc_type = ?, inc_mot = ?, inc_amount = ?, inc_remarks = ? WHERE user_id = ? AND inc_date = ?";
-                $stmt = mysqli_prepare($db_connect, $update_sql);
-                mysqli_stmt_bind_param($stmt, "sssdssis", $inc_origin, $inc_type, $inc_mot, $inc_amount, $inc_remarks, $user_id, $inc_date);
-                if (mysqli_stmt_execute($stmt)) {
-                    echo "Income updated successfully.";
-                } else {
-                    echo "Error updating income: " . mysqli_stmt_error($stmt);
-                }
+            if (mysqli_query($db_connect, $sql)) {
+                echo "Income added successfully.";
             } else {
                 // Insert new income record
                 $insert_sql = "INSERT INTO income (user_id, inc_date, inc_origin, inc_type, inc_mot, inc_amount, inc_remarks)
@@ -54,8 +43,6 @@
                     echo "Error adding income: " . mysqli_stmt_error($stmt);
                 }
             }
-
-            mysqli_stmt_close($stmt);
         }
     }
 
