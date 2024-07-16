@@ -17,7 +17,7 @@
                     <div class="tbl_rtitle">
                         <span class="bud_title"><?php echo $row['bud_title']; ?></span>
                         <span class="bud_date_modified">DATE MODIFIED: <?php echo $row['date_modified']; ?></span>
-                        <span class="bud_desc"><?php echo '>> ' . $row['bud_desc']; ?></span>
+                        <span class="bud_desc"><?php if(!empty($row['bud_desc'])) echo '>> ' . $row['bud_desc']; ?></span>
                     </div>
                 </td>
                 <td class="bud_btns">

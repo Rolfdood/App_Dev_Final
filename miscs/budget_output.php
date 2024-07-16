@@ -40,9 +40,9 @@
                     </div>
 
                     <div class="output_btn">
-                        <button class="btn_add btns" id="btn_new" name="btn_add">ADD ITEM</button>
-                        <button class="btn_edit btns" id="btn_edit_main" name="btn_edit_main">EDIT</button>
-                        <button class="btn_delete btns" id="btn_delete" name="btn_delete">DELETE</button>
+                        <button class="btn_add btns" id="btn_new" name="btn_add"><i class='bx bx-plus'></i>ADD ITEM</button>
+                        <button class="btn_edit btns" id="btn_edit_main" name="btn_edit_main"><i class='bx bxs-edit'></i>EDIT</button>
+                        <button class="btn_delete btns" id="btn_delete" name="btn_delete"><i class='bx bx-trash' ></i>DELETE</button>
                     </div>
                 </div>
                 <hr>

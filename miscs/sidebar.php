@@ -69,11 +69,16 @@
             </ul>
         </div>
         <div class="bottom-content">
-            <li class="nav-link">
+            <li class="nav-link logout">
                 <a href="../php/logout.php" id="">
                     <i class='bx bxs-log-out icon' ></i>
                     <span class="text nav-text">Log Out</span>
                 </a>
+            </li>
+            <hr>
+            <li class="nav-link">
+                <img src="../src/logo_light.png" class="icon logo" alt="">
+                <span class="text nav-text">SoloSpend</span>
             </li>
 
             <?php
