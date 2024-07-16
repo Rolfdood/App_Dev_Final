@@ -39,4 +39,14 @@
             return True;
         } else { return False; }
     }
+
+    function deleteData($table, $column, $id) {
+        include 'db_conn.php';
+
+        $sql = "DELETE FROM $table WHERE $column = $id;";
+        
+        $result = mysqli_query($db_connect, $sql);
+
+        mysqli_close( $db_connect );
+    }
 ?>

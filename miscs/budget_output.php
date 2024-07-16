@@ -135,8 +135,7 @@
                                 <?php 
                                     if ($err_bud_title[1] == True) echo 'class="err_field"';   
                                     echo 'value="' . $budget_info['bud_title'] . '"';
-                                ?>
-                            >
+                                ?> >
                             <?php if ($err_bud_title[1] == True) echo '<span class="err_message">Please enter a title. Less than 50 characters only.</span>'; ?>
                         </div>
                     </div>

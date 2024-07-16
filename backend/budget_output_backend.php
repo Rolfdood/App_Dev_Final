@@ -48,6 +48,7 @@
         
         if (!$err_bud_title[0]) {
             updateSheet($bud_title, $bud_desc, $bud_id);
+            header("Location: budget_output.php?bud=$bud_id");
         }
     }
 

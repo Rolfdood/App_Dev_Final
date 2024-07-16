@@ -1,12 +1,10 @@
 <?php 
-    $user = 11;
-    /*
     session_start();
     // Check if the user is logged in
-    /*if (!isset($_SESSION['user_id'])) {
+    if (!isset($_SESSION['user_uname'])) {
         header("Location: ../backend/invalid_access.php"); // Redirect to login if not logged in
         exit();
-    } */
+    }
     
     include '../backend/upd_del_backend.php';
 ?>
@@ -43,7 +41,8 @@
                             <label for="rbud_item_desc">Item: <b class="req_field">*</b></label>
                             <input type="text" name="edit_item" id="edit_item"
                                 <?php if ($err_bud_items[1] == True) echo 'class="err_field"';
-                                    echo 'value="' . $data['bud_item_name'] . '"'; ?>>
+                                    echo 'value="' . $data['bud_item_name'] . '"';
+                                    if ($action == 'del') echo 'readonly'; ?>>
                             <?php if ($err_bud_items[1] == True) echo '<span class="err_message">Please enter an item name.</span>'; ?>
                         </div>
 
@@ -51,7 +50,8 @@
                             <label for="rbud_item_desc">Purpose: <b class="req_field">*</b></label>
                             <input type="text" name="edit_purp" id="edit_purp"
                                 <?php if ($err_bud_items[2] == True) echo 'class="err_field"';
-                                    echo 'value="' . $data['bud_item_purp'] . '"'; ?>>
+                                    echo 'value="' . $data['bud_item_purp'] . '"'; 
+                                    if ($action == 'del') echo 'readonly';?>>
                             <?php if ($err_bud_items[2] == True) echo '<span class="err_message">Please enter its purpose.</span>'; ?>
                         </div>
 
@@ -59,17 +59,22 @@
                             <label for="rbud_item_desc">Amount: <b class="req_field">*</b></label>
                             <input type="text" name="edit_amnt" id="edit_amnt" 
                                 <?php if ($err_bud_items[3] == True) echo 'class="err_field"';
-                                    echo 'value="' . $data['bud_item_amount'] . '"'; ?>>
+                                    echo 'value="' . $data['bud_item_amount'] . '"';
+                                    if ($action == 'del') echo 'readonly';?>>
                             <?php if ($err_bud_items[3] == True) echo '<span class="err_message">Please enter its amount.</span>'; ?>
                         </div>
 
                         <div class="edit_fields">
                             <label for="rbud_item_desc">Note:</label>
-                            <input type="text" name="edit_desc" id="edit_desc" class="edit_desc" <?php echo 'value="' . $data['bud_item_desc'] . '"'; ?>>
+                            <input type="text" name="edit_desc" id="edit_desc" class="edit_desc" <?php echo 'value="' . $data['bud_item_desc'] . '"'; 
+                                if ($action == 'del') echo 'readonly'; ?>>
                         </div>
 
                         <div class="edit_fields btns">
-                            <input type="submit" value="UPDATE ITEM" name="btn_update" class="btn_update" id="btn_update">
+                            <?php if ($action == 'upd') echo
+                                '<input type="submit" value="UPDATE ITEM" name="btn_update" class="btn_update" id="btn_update">';
+                            if ($action == 'del') echo 
+                                '<input type="submit" value="DELETE ITEM" name="btn_delete" class="btn_delete" id="btn_delete">'; ?>
                         </div>
                     </form>
                 </div>
