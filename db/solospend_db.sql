@@ -85,6 +85,13 @@ CREATE TABLE `income` (
   `inc_remarks` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `income`
+--
+
+INSERT INTO `income` (`inc_id`, `user_id`, `inc_date`, `inc_origin`, `inc_type`, `inc_mot`, `inc_amount`, `inc_remarks`) VALUES
+(1, 12, '2024-07-11', 'Job', 'sideline', 'GCASH', 500.00, '0');
+
 -- --------------------------------------------------------
 
 --
@@ -151,7 +158,7 @@ ALTER TABLE `expenses`
 --
 ALTER TABLE `income`
   ADD PRIMARY KEY (`inc_id`),
-  ADD UNIQUE KEY `user_id` (`user_id`);
+  ADD KEY `user_id` (`user_id`) USING BTREE;
 
 --
 -- Indexes for table `rmshare`

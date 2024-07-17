@@ -101,6 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       mysqli_stmt_execute($update_stmt);
       unset($_POST['edit_email']);
       unset($_SESSION['edit_email']);
+      $email = $_SESSION['user_email'];
     } else {
       $error['email'] = true;
     }
