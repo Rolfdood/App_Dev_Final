@@ -70,6 +70,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../src/assets/logo_colored.png" type="image/icon type">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../styles/general.css">
     <link rel="stylesheet" href="../styles/user.css">
@@ -98,7 +99,7 @@
 
         <div class="table-container">
             <table>
-                <tr>
+                <tr class="tbl_headers">
                     <th>Date</th>
                     <th>Origin</th>
                     <th>Type</th>
@@ -121,14 +122,14 @@
                         echo "<td>";
                         echo "<form method='post' style='display:inline;'>";
                         echo "<input type='hidden' name='inc_id' value='" . $row['inc_id'] . "'>";
-                        echo "<button type='submit' name='delete_income' class='action-btn delete' onclick='return confirm(\"Are you sure you want to delete this income?\")'>Delete</button>";
+                        echo "<button type='submit' name='delete_income' class='action-btn delete btn_act_del btn_act' onclick='return confirm(\"Are you sure you want to delete this income?\")'>Delete</button>";
                         echo "</form>";
-                        echo "<button class='action-btn'>Edit</button>";
+                        echo "<button class='action-btn btn_act_edit btn_act'>Edit</button>";
                         echo "</td>";
                         echo "</tr>";
                     }
                 } else {
-                    echo "<tr><td>No incomes found.</td></tr>";
+                    echo "<tr><td colspan='7' class='no_data'>No incomes found.</td></tr>";
                 }
                 ?>
             </table>

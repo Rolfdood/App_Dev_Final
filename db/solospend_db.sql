@@ -81,7 +81,8 @@ CREATE TABLE `income` (
   `inc_origin` varchar(50) NOT NULL,
   `inc_type` varchar(50) NOT NULL,
   `inc_mot` varchar(50) NOT NULL,
-  `inc_amount` decimal(10,2) NOT NULL
+  `inc_amount` decimal(10,2) NOT NULL,
+  `inc_remarks` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------

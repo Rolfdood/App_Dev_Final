@@ -140,6 +140,7 @@ a {
 
 .recovery-cont {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -154,16 +155,11 @@ a {
   background: var(--container-color);
 }
 
-.inheritFooter {
+.footer {
   width: inherit;
   position: absolute;
   bottom: 0;
   left: 0;
-}
-
-.footer {
-  position: relative;
-  bottom: 0;
   margin-bottom: 20px;
   text-align: center;
 }

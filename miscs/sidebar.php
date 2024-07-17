@@ -55,7 +55,7 @@
                     </a>
                 </li>
                 <li class="nav-link" <?php if ($current == 'summary') echo 'id="current"'; ?>>
-                    <a href="summary.php" id="" title="Summary">
+                    <a href="../php/summary.php" id="" title="Summary">
                         <i class='bx bxs-bar-chart-alt-2 icon' ></i>
                         <span class="text nav-text">Summary</span>
                     </a>

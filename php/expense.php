@@ -62,6 +62,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../src/assets/logo_colored.png" type="image/icon type">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../styles/general.css">
     <link rel="stylesheet" href="../styles/user.css">
@@ -110,9 +111,9 @@
                         echo "<td>";
                         echo "<form method='post' style='display:inline;'>";
                         echo "<input type='hidden' name='exp_id' value='" . $row['exp_id'] . "'>";
-                        echo "<button type='submit' name='delete_expense' class='action-btn delete' onclick='return confirm(\"Are you sure you want to delete this expense?\")'>Delete</button>";
+                        echo "<button type='submit' name='delete_expense' class='action-btn delete btn_act_del btn_act' onclick='return confirm(\"Are you sure you want to delete this expense?\")'>DELETE</button>";
                         echo "</form>";
-                        echo "<button class='action-btn'>Edit</button>"; // (Edit functionality not implemented yet)
+                        echo "<button class='action-btn btn_act_edit btn_act'>EDIT</button>"; // (Edit functionality not implemented yet)
                         echo "</td>";
                         echo "</tr>";
                     }

@@ -116,8 +116,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['confirm'])) {
       </form>
     </section>
 
-    <div class="footer inheritFooter">
-      <span class="footer">All rights reserved 2024.</span>
+    <div class="footer">
+      <span class="footer">SoloSpend 2024.</span>
     </div>
   </div>
 </body>
