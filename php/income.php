@@ -144,30 +144,6 @@
                 ?>
             </table>
         </div>
-       <div class="table-container">
-           <table>
-               <tr class="tbl_headers">
-                   <th>Date|Origin|Type|Mode of Transaction|Amount|Remarks|Actions</th>
-               </tr>
-               <?php
-               if ($result && mysqli_num_rows($result) > 0) {
-                   while ($row = mysqli_fetch_assoc($result)) {
-                       echo "<tr>";
-                       echo "<td>" . date('m/d/Y', strtotime($row['inc_date'])) ."|". $row['inc_origin'] ."|". $row['inc_type'] ."|". $row['inc_mot'] ."|". $row['inc_amount'] ."|". $row['inc_remarks'] ."|";
-                       echo "<form method='post' style='display:inline;'>";
-                       echo "<input type='hidden' name='inc_id' value='" . $row['inc_id'] . "'>";
-                       echo "<button type='submit' name='delete_income' class='action-btn delete' onclick='return confirm(\"Are you sure you want to delete this income?\")'>Delete</button>";
-                       echo "</form>";
-                       echo "<button class='action-btn'>Edit</button>";
-                       echo "</td>";
-                       echo "</tr>";
-                   }
-               } else {
-                   echo "<tr><td class='no_data'>No incomes found.</td></tr>";
-               }
-               ?>
-           </table>
-       </div>
    </section>
 
    <div class="modal-bg">
