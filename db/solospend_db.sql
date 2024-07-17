@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 17, 2024 at 11:25 AM
+-- Generation Time: Jul 17, 2024 at 03:27 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -34,7 +34,6 @@ CREATE TABLE `budget` (
   `bud_desc` varchar(300) NOT NULL,
   `date_modified` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
 
 -- --------------------------------------------------------
 
@@ -68,6 +67,20 @@ CREATE TABLE `expenses` (
   `exp_remarks` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `expenses`
+--
+
+INSERT INTO `expenses` (`exp_id`, `user_id`, `exp_date`, `exp_type`, `exp_mop`, `exp_amount`, `exp_remarks`) VALUES
+(1, 1, '2024-07-17', 'adasda', 'CASH', 54.00, ''),
+(3, 1, '2024-06-07', 'sdasdadas', 'CASH', 54.00, 'daksjdlkasjdlaksjdlaskdlkasdlaskhsajhfsajlhdalskjdlkasjdlkasjd'),
+(4, 1, '2024-06-07', 'sdasdadas', 'CASH', 54.00, 'daksjdlkasjdlaksjdlaskdlkasdlaskhsajhfsajlhdalskjdlkasjdlkasjd'),
+(5, 1, '2024-06-07', 'sdasdadas', 'CASH', 54.00, 'daksjdlkasjdlaksjdlaskdlkasdlaskhsajhfsajlhdalskjdlkasjdlkasjd'),
+(6, 1, '2024-06-07', 'sdasdadas', 'CASH', 54.00, 'daksjdlkasjdlaksjdlaskdlkasdlaskhsajhfsajlhdalskjdlkasjdlkasjd'),
+(7, 1, '2024-06-07', 'sdasdadas', 'CASH', 54.00, 'daksjdlkasjdlaksjdlaskdlkasdlaskhsajhfsajlhdalskjdlkasjdlkasjd'),
+(8, 1, '2024-06-07', 'sdasdadas', 'CASH', 54.00, 'daksjdlkasjdlaksjdlaskdlkasdlaskhsajhfsajlhdalskjdlkasjdlkasjd'),
+(9, 1, '2024-07-19', 'sdasdadas', 'CASH', 54.00, '');
+
 -- --------------------------------------------------------
 
 --
@@ -88,26 +101,6 @@ CREATE TABLE `income` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `rmshare`
---
-
-CREATE TABLE `rmshare` (
-  `rmshare_id` int(20) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `rmshare_title` varchar(50) NOT NULL,
-  `rmshare_ntenants` int(11) NOT NULL,
-  `rmshare_sdate` date NOT NULL,
-  `rmshare_edate` date NOT NULL,
-  `rmshare_uelec` decimal(10,2) DEFAULT NULL,
-  `rmshare_uwater` decimal(10,2) DEFAULT NULL,
-  `rmshare_uothers` decimal(10,2) DEFAULT NULL,
-  `rmshare_desc` varchar(300) DEFAULT NULL,
-  `date_modified` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `user`
 --
 
@@ -120,6 +113,13 @@ CREATE TABLE `user` (
   `user_email` varchar(100) NOT NULL,
   `user_dob` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`user_id`, `user_uname`, `user_password`, `user_fname`, `user_lname`, `user_email`, `user_dob`) VALUES
+(1, 'mjadetc', '$2y$10$HREmfpli86hxfQQZuLwKGuaRUG1rMo7pBmylmZOw6hTMdOtHxTqFG', 'Marnel Jade', 'Carpio', '202211328@fit.edu.ph', '2004-06-19');
 
 --
 -- Indexes for dumped tables
@@ -144,20 +144,13 @@ ALTER TABLE `budget_item`
 --
 ALTER TABLE `expenses`
   ADD PRIMARY KEY (`exp_id`),
-  ADD UNIQUE KEY `user_id` (`user_id`);
+  ADD KEY `user_id` (`user_id`) USING BTREE;
 
 --
 -- Indexes for table `income`
 --
 ALTER TABLE `income`
   ADD PRIMARY KEY (`inc_id`),
-  ADD UNIQUE KEY `user_id` (`user_id`);
-
---
--- Indexes for table `rmshare`
---
-ALTER TABLE `rmshare`
-  ADD PRIMARY KEY (`rmshare_id`),
   ADD KEY `user_id` (`user_id`) USING BTREE;
 
 --
@@ -189,22 +182,10 @@ ALTER TABLE `expenses`
   MODIFY `exp_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `income`
---
-ALTER TABLE `income`
-  MODIFY `inc_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `rmshare`
---
-ALTER TABLE `rmshare`
-  MODIFY `rmshare_id` int(20) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
@@ -227,18 +208,6 @@ ALTER TABLE `budget_item`
 --
 ALTER TABLE `expenses`
   ADD CONSTRAINT `expenses_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`);
-
---
--- Constraints for table `income`
---
-ALTER TABLE `income`
-  ADD CONSTRAINT `income_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`);
-
---
--- Constraints for table `rmshare`
---
-ALTER TABLE `rmshare`
-  ADD CONSTRAINT `del_rmshare` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
