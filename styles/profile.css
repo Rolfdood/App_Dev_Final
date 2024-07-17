@@ -1,0 +1,64 @@
+form {
+    height: 90%;
+    display: flex;
+    flex-direction: row; 
+
+    justify-content: center;
+    align-items: center;
+}
+
+.inputFields {
+    width: 60%;
+    margin-left: 30px;
+}
+
+.inpFields {
+    width: 100%;
+    margin: 10px 0;
+}
+
+input {
+    height: 40px;
+    width: 400px;
+    text-indent: 10px;
+    margin: 5px 0;
+}
+
+input[type = 'text'], input[type = 'password'],
+input[type = 'date'] {
+    margin-right: 20px;
+}
+
+input[type = 'submit'] {
+    width: 100px;
+    background: var(--container-color);
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 2px var(--primary-color);
+    text-indent: 0px !important;
+    transition: var(--transition-1);
+}
+
+input[type = 'submit']:hover, .btn_cancel:hover {
+    background: var(--primary-color) !important;
+    color: var(--container-color);
+    font-weight: bold;
+}
+
+.btn_cancel {
+    background: var(--primary-color-light) !important;
+    transition: var(--transition-1);
+}
+
+h2 {
+    font-weight: 500;
+}
+
+.profile_pic {
+    margin-left: 50px;
+}
+
+.password_fields {
+    display: flex;
+    flex-direction: column;
+}

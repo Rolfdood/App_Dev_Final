@@ -1,0 +1,118 @@
+.dashboard_cont {
+    margin: 20px 0;
+    padding: 20px;
+
+    box-shadow: 0 0 2px var(--primary-color);
+    border-radius: 5px;
+}
+
+.dashboard_others {
+    display: flex;
+    flex-direction: row;
+}
+
+.greetings {
+    font-size: 40px;
+}
+
+.uname {
+    font-weight: 600 !important;
+}
+
+ul {
+    list-style: none;
+}
+
+.summaries {
+    display: flex;
+    flex-direction: row;
+}
+
+.summaries li {
+    width: 100%;
+    box-shadow: 0 0 2px var(--primary-color);
+    padding: 20px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+
+    border-radius: 5px;
+    margin: 0 10px;
+
+    transition: var(--transition-2);
+}
+
+.summaries li i {
+    background: var(--primary-color-light);
+    font-size: 30px;
+    padding: 15px;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+
+.summaries li:hover {
+    background: var(--primary-color);
+    color: var(--container-color);
+}
+
+.summaries li:hover i  {
+    background: var(--container-color);
+    color: var(--primary-color);
+}
+
+.summary_deets {
+    display: flex;
+    flex-direction: column;
+}
+
+.summary_deets b {
+    font-size: 20px;
+}
+
+.dashboard_budget {
+    width: 70%;
+}
+
+.quotations {
+    width: 30%;
+    height: inherit;
+    margin-left: 20px;
+
+    padding: 0 !important;
+
+    background-image: url('../src/stocks/bg1.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.quote_background {
+    width: 100%;
+    height: 100%;
+    padding: 30px;
+
+    color: var(--container-color);
+    text-shadow: 0 0 10px var(--primary-color);
+
+    background: var(--primary-color-trans);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    overflow: hidden;
+}
+
+#quote {
+    font-weight: 600;
+    font-size: larger;
+}
+
+#author {
+    margin-top: 10px;
+    font-style: italic;
+}

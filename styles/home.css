@@ -1,0 +1,186 @@
+/* ------------------------------- HEADER ------------------------------- */
+.header {
+    height: 90vh;
+    background-image: url('../src/stocks/bg4.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.header-contents {
+    width: 100%;
+    height: 100%;
+    padding: 30px;
+
+    color: var(--container-color);
+    text-shadow: 0 0 10px var(--primary-color);
+
+    background: var(--primary-color-trans2);
+
+    display: flex;
+    flex-direction: row ;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    overflow: hidden;
+}
+
+.header-contents img {
+    width: 600px;
+    -webkit-filter: drop-shadow(0 0 2px var(--primary-color));
+    filter: drop-shadow(0 0 2px var(--primary-color-light));
+}
+
+.header-contents .header-text {
+    margin-left: -50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.header-app-name {
+    font-size: 100px;
+    font-weight: 500;
+}
+
+.tagline {
+    margin-top: 10px;
+    font-size: 25px;
+    font-style: italic;
+}
+
+
+/* ------------------------------- ABOUT ------------------------------- */
+.about {
+    height: 800px;
+}
+
+.main_about {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.main_about .text {
+    width: 50%;
+    padding: 50px;
+}
+
+.main_about .image img{
+    width: 800px;
+    padding: 50px;
+    -webkit-filter: drop-shadow(4px 4px 10px var(--primary-color));
+    filter: drop-shadow(4px 4px 10px var(--primary-color-light));
+}
+
+.main_about .text h2 {
+    font-size: 40px;
+}
+
+.main_about .main-about-text {
+    font-size: 20px;
+    text-align: justify;
+}
+
+.main_about .text h3 {
+    font-size: 25px;
+}
+
+.about-text {
+    border: 1px solid var(--primary-color);
+    box-shadow: 5px 5px 2px var(--primary-color);
+    border-radius: 5px;
+    padding: 40px;
+    margin: 40px 0;
+    text-align: justify;
+}
+
+.advantages {
+    background-image: url('../src/stocks/bg5.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.benefits-header {
+    width: 100%;
+    height: 100%;
+    padding: 30px;
+
+    color: var(--container-color);
+    text-shadow: 0 0 10px var(--primary-color);
+
+    background: var(--primary-color-trans2);
+
+    display: flex;
+    flex-direction: row ;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    overflow: hidden;
+}
+
+.benefits-header img {
+    width: 1250px;
+    margin-bottom: 20px;
+}
+
+.benefits-header .image h4{
+    font-size: 40px;
+}
+
+.benefit-item {
+    width: 600px;
+    margin: 20px;
+    margin-left: -50px;
+    padding: 20px;
+    background: var(--container-color);
+    border-radius: 5px;
+    text-shadow: none !important;
+    color: var(--text-color);
+    font-size: 13px;
+    text-align: justify;
+    box-shadow: 5px 5px 2px var(--primary-color);
+}
+
+.benefit-item h4 {
+    color: var(--primary-color);
+    font-size: 20px;
+}
+
+.right h4 {
+    text-align: left !important;
+}
+
+.left h4 {
+    text-align: right !important;
+}
+
+/* ------------------------------- CONTACTS ------------------------------- */
+.contact {
+    padding: 30px 50px;
+    background: var(--primary-color);
+    color: var(--container-color);
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+} 
+
+.contacts_left {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact h4 {
+    font-size: 20px;
+}
+
+.footer {
+    font-weight: bold;
+}

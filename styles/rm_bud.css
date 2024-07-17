@@ -1,0 +1,87 @@
+.contents {
+    margin-top: 20px;
+    height: inherit;
+}
+
+.btns {
+    display: flex;
+
+    background: var(--body-color);
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 2px var(--primary-color);
+
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    font-size: 15px;
+    color: var(--primary-color);
+    padding: 5px 10px;
+
+    transition:  var(--transition-2);
+}
+
+.btns i {
+    font-size: 25px;
+    font-weight: 500;
+    margin-right: 5px;
+}
+
+.btns:hover {
+    background: var(--primary-color);
+    color: var(--container-color);
+    font-size: medium;
+}
+
+.output_headers,
+.output_headers .output_btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.output_headers .output_title {
+    padding-right: 100px;
+}
+
+.output_desc {
+    font-size: 15px;
+    font-style: italic;
+}
+
+.output_btn button, .output_btn a {
+    width: 130px;
+    height: 50px;
+    margin: auto 5px;
+    text-decoration: none;
+}
+
+.output_btn button:hover , .output_btn a:hover {
+    background: var(--primary-color);
+    color: var(--container-color);
+    font-weight: bolder;
+}
+
+.tbl_btns {
+    width: min-content;
+}
+
+.tbl_rbtns {
+    display: flex;
+    justify-content: center;
+}
+
+.tbl_rbtns a {
+    width: 100px;
+    height: 40px;
+    margin: 5px;
+    text-decoration: none;
+}
+
+.output_data {
+    height: inherit;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,45 @@
+.no_data {
+    text-align: center;
+}
+
+input, select {
+    height: 40px;
+}
+
+td {
+    text-align: center;
+}
+
+table button {
+    width: 100px;
+    height: 50px;
+    margin: 0 5px;
+    font-size: 14px;
+}
+
+.btn_act_edit {
+    background: var(--container-color);
+    color: var(--primary-color);
+    box-shadow: 0 0 2px var(--primary-color) !important;
+}
+
+.btn_act_del {
+    background: var(--primary-color-light);
+    color: var(--primary-color);
+}
+
+.btn_act {
+    border-radius: 5px;
+    border: none;
+    transition: var(--transition-3);
+}
+
+.btn_act:hover {
+    background: var(--primary-color);
+    color: var(--container-color);
+    font-weight: bold;
+}
+
+.btn_act_del:hover {
+    background: red !important;
+}
