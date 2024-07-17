@@ -63,3 +63,10 @@ hr {
     margin-bottom: 20px;
     border-color: wheat;
 }
+
+.delete_note {
+    margin-top: 10px;
+    font-size: 15px;
+    font-style: italic;
+    text-align: center;
+}

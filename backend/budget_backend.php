@@ -84,7 +84,7 @@
         mysqli_close($db_connect);
     }
     
-    function getBudgetContents($sheet_id,) {
+    function getBudgetContents($sheet_id) {
         // ADD USER_ID IN DATABASE INSERT
         include 'db_conn.php';
 
@@ -110,10 +110,10 @@
                 </td>
                 <td class="bud_btns">
                     <div class="tbl_rbtns">
-                        <a href="../miscs/upd_del_data.php?action=upd&type=bud&sheet=budget_item&id=<?php echo $row['bud_item_id'];?>$return=<?php echo $bud_id; ?>" class="btn_edit btns" id="btn_edit">
+                        <a href="../miscs/upd_del_data.php?action=upd&type=bud&sheet=budget_item&id=<?php echo $row['bud_item_id'] . '&ret=' . $sheet_id; ?>" class="btn_edit btns" id="btn_edit">
                             EDIT
                         </a>
-                        <a href="../miscs/upd_del_data.php?action=del&type=bud&sheet=budget_item&id=<?php echo $row['bud_item_id']; ?>" class="btn_delete btns" id="btn_delete" data-id="<?php echo $row['bud_item_id']; ?>">DELETE</a>
+                        <a href="../miscs/upd_del_data.php?action=del&type=bud&sheet=budget_item&id=<?php echo $row['bud_item_id'] . '&ret=' . $sheet_id;  ?>" class="btn_delete btns" id="btn_delete" data-id="<?php echo $row['bud_item_id']; ?>">DELETE</a>
                     </div>
                 </td>
             </tr>

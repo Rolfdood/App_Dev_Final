@@ -77,15 +77,9 @@
             </li>
             <hr>
             <li class="nav-link">
-                <img src="../src/logo_light.png" class="icon logo" alt="">
+                <img src="../src/assets/logo_light.png" class="icon logo" alt="">
                 <span class="text nav-text">SoloSpend</span>
             </li>
-
-            <?php
-                //if (isset($_REQUEST['log_out'])) {
-                //    session_unset();
-                //}
-            ?>
         </div>
     </div>
     

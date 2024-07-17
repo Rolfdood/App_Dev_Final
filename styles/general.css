@@ -75,10 +75,14 @@ td {
 
 .btn_delete {
     background: var(--primary-color-light) !important;
+    transition: var(--transition-1);
+    border: none !important;
 }
 
 .btn_delete:hover {
     background: red !important;
+    color: var(--container-color) !important;
+    font-weight: bold;
 }
 
 .bud_btns {

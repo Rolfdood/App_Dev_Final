@@ -4,6 +4,7 @@
     $action = $_GET['action'];  // UPDATE or CREATE
     $sheet = $_GET['sheet'];    // DATABASE TABLE
     $item_id = $_GET['id'];     // ITEM ID
+    $return = $_GET['ret'];
 
     $data = get_data($sheet, $item_id);
 
@@ -33,9 +34,14 @@
 
         if (!$err_bud_items[0]) {
             update_item($sheet, $bud_item, $item_id); 
-            $return = $_GET['return'];
             header("Location: budget_output.php?bud=$return");
         }
+    }
+
+    if (isset($_POST['btn_del'])) {
+        if ($sheet == 'budget_item') $col = 'bud_item_id';
+        delete_item($sheet, $col, $item_id);
+        header("Location: budget_output.php?bud=$return");
     }
     
     function get_data($table, $id) {
@@ -72,7 +78,7 @@
     function delete_item($table, $column, $id) {
         include 'db_conn.php';
 
-        $sql = "DELETE FROM $table WHERE $column = $id;";
+        $sql = "DELETE FROM $table WHERE $column = $id";
         
         $result = mysqli_query($db_connect, $sql);
 

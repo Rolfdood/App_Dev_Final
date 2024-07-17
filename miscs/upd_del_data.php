@@ -41,7 +41,7 @@
                             <label for="rbud_item_desc">Item: <b class="req_field">*</b></label>
                             <input type="text" name="edit_item" id="edit_item"
                                 <?php if ($err_bud_items[1] == True) echo 'class="err_field"';
-                                    echo 'value="' . $data['bud_item_name'] . '"';
+                                    echo 'value="' . $data['bud_item_name'] . '" ';
                                     if ($action == 'del') echo 'readonly'; ?>>
                             <?php if ($err_bud_items[1] == True) echo '<span class="err_message">Please enter an item name.</span>'; ?>
                         </div>
@@ -73,12 +73,37 @@
                         <div class="edit_fields btns">
                             <?php if ($action == 'upd') echo
                                 '<input type="submit" value="UPDATE ITEM" name="btn_update" class="btn_update" id="btn_update">';
-                            if ($action == 'del') echo 
-                                '<input type="submit" value="DELETE ITEM" name="btn_delete" class="btn_delete" id="btn_delete">'; ?>
-                        </div>
+                            if ($action == 'del') {
+                                echo 
+                                '<input type="submit" value="DELETE ITEM" name="btn_del" class="btn_delete" id="btn_del">'; 
+                                echo '<span class="delete_note"><b>NOTE :</b> The item will be deleted. You can\'t undo this once deleted.</span>';}
+                                
+                                ?>
+                            </div>
                     </form>
                 </div>
             </div>
         </section>
+
+        <div class="mod_confirm" id="mod_confirm">
+            <div class="modal-content confirm-content">
+                <div class="title">
+                    <h2>Confirm Delete</h2>
+                </div>
+
+                <div class="modal_field confirm-cnt">
+                    <span>Are you sure you want to delete this item? You can't undo this after deleting.</span>
+                </div>
+
+                <div class="modal_field_rows modal_btns">
+                    <form action="">
+                        <button class="btn_delete confirm_del" id="delete">DELETE</button>
+                    </form>
+                    <button class="btn_cancel2" id="btn_cancel2">CANCEL</button>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="../scripts/modal.js"></script>
     </body>
 </html>
