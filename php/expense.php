@@ -22,9 +22,17 @@
         $exp_remarks = $_POST['exp_remarks'];
         $user_id = $_SESSION['user_id'];
 
-        // Input validation (add more robust validation as needed)
-        if (empty($exp_date) || empty($exp_type) || empty($exp_amount)) {
-            echo "Please fill in all required fields.";
+        // Input validation with regex 
+        $dateRegex = '/^(0[1-9]|1[0-2])\/(0[1-9]|[1-2][0-9]|3[0-1])\/\d{4}$/'; 
+        $typeRegex = '/^[a-zA-Z0-9\s]+$/'; 
+        $amountRegex = '/^\d+(\.\d{1,2})?$/'; 
+
+        if (!preg_match($dateRegex, $exp_date)) {
+            echo "Invalid date format. Please use MM/DD/YYYY.";
+        } elseif (!preg_match($typeRegex, $exp_type)) {
+            echo "Invalid expense type. Only alphanumeric characters and spaces are allowed.";
+        } elseif (!preg_match($amountRegex, $exp_amount)) {
+            echo "Invalid amount. Please enter a positive number.";
         } else {
             // Insert expense into database
             $sql = "INSERT INTO expenses (user_id, exp_date, exp_type, exp_mop, exp_amount, exp_remarks) 

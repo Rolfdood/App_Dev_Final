@@ -21,10 +21,21 @@
         $inc_remarks = $_POST['inc_remarks'];
         $user_id = $_SESSION['user_id']; 
 
-        // Input validation (add more robust validation as needed)
-        if (empty($inc_date) || empty($inc_origin) || empty($inc_amount)) {
-            echo "Please fill in all required fields.";
-        } else {
+       // Input validation with regex 
+       $dateRegex = '/^(0[1-9]|1[0-2])\/(0[1-9]|[1-2][0-9]|3[0-1])\/\d{4}$/'; 
+       $originRegex = '/^[a-zA-Z0-9\s]+$/'; 
+       $typeRegex = '/^[a-zA-Z0-9\s]+$/'; 
+       $amountRegex = '/^\d+(\.\d{1,2})?$/'; 
+
+       if (!preg_match($dateRegex, $inc_date)) {
+           echo "Invalid date format. Please use MM/DD/YYYY.";
+       } elseif (!preg_match($originRegex, $inc_origin)) {
+           echo "Invalid income origin. Only alphanumeric characters and spaces are allowed.";
+       } elseif (!preg_match($typeRegex, $inc_type)) {
+           echo "Invalid income type. Only alphanumeric characters and spaces are allowed.";
+       } elseif (!preg_match($amountRegex, $inc_amount)) {
+           echo "Invalid amount. Please enter a positive number.";
+       } else {
             // Insert income into database
             $sql = "INSERT INTO income (user_id, inc_date, inc_origin, inc_type, inc_mot, inc_amount, inc_remarks)
                     VALUES ('$user_id', '$inc_date', '$inc_origin', '$inc_type', '$inc_mot', '$inc_amount', '$inc_remarks')";
