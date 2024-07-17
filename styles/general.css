@@ -4,6 +4,8 @@
 
     --body-color: #ffffff;
     --primary-color: #29274C;
+    --primary-color-trans: #29274cb4;
+    --primary-color-trans2: #29274cd1;
     --primary-color-light: #D5CFE1;
     --toggle-color: #FFF;
     --text-color: #070002;
@@ -73,10 +75,14 @@ td {
 
 .btn_delete {
     background: var(--primary-color-light) !important;
+    transition: var(--transition-1);
+    border: none !important;
 }
 
 .btn_delete:hover {
     background: red !important;
+    color: var(--container-color) !important;
+    font-weight: bold;
 }
 
 .bud_btns {

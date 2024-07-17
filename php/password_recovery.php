@@ -62,11 +62,33 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['confirm'])) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Password Recovery</title>
+  <link rel="icon" href="../src/assets/logo_colored.png" type="image/icon type">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <link rel="stylesheet" href="../styles/general.css">
   <link rel="stylesheet" href="../styles/login_reg.css">
+  <link rel="stylesheet" href="../styles/navbar.css">
+
 </head>
 
 <body>
+  <nav class="navbar">
+      <div class="logo">
+        <img src="../src/assets/logo_colored.png" alt="logo">
+        <span class="app-name">SoloSpend</span>
+      </div>
+
+      <div class="nav-buttons">
+        <ul>
+          <li class="nav-link">
+            <a href="../index.php">
+              <i class='bx bxs-home icon'></i>
+              <span class="text2">HOME</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
   <div class="container recovery-cont">
     <section class="login forms recovery">
       <div class="row_fields">

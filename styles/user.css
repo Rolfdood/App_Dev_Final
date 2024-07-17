@@ -176,6 +176,10 @@ header .image-text .header-text {
     justify-content: space-between;
 }
 
+.sidebar .logo {
+    width: 15px;
+}
+
 hr {
     border-top: 2px gray;
     margin-top: 10px;

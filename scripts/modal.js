@@ -22,11 +22,3 @@ document.getElementById('create_new').addEventListener('click', function() {
 document.querySelector('.btn_cancel').addEventListener('click', function(){
     document.querySelector('.modal-bg').style.display = 'none';
 });
-
-document.getElementById('btn_delete').addEventListener('click', function() {
-    document.querySelector('.mod_confirm').style.display = 'flex';
-});
-
-document.querySelector('.btn_cancel2').addEventListener('click', function(){
-    document.querySelector('.mod_confirm').style.display = 'none';
-});

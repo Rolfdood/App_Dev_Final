@@ -40,9 +40,9 @@
                     </div>
 
                     <div class="output_btn">
-                        <button class="btn_add btns" id="btn_new" name="btn_add">ADD ITEM</button>
-                        <button class="btn_edit btns" id="btn_edit_main" name="btn_edit_main">EDIT</button>
-                        <button class="btn_delete btns" id="btn_delete" name="btn_delete">DELETE</button>
+                        <button class="btn_add btns" id="btn_new" name="btn_add"><i class='bx bx-plus'></i>ADD ITEM</button>
+                        <button class="btn_edit btns" id="btn_edit_main" name="btn_edit_main"><i class='bx bxs-edit'></i>EDIT</button>
+                        <button class="btn_delete btns" id="btn_del" name="btn_delete"><i class='bx bx-trash' ></i>DELETE</button>
                     </div>
                 </div>
                 <hr>
@@ -156,6 +156,25 @@
                         <input type="submit" value="UPDATE" name="btn_update" class="btn_modal btn_update" id="btn_update">
                     </div>
                 </form>
+            </div>
+        </div>
+
+        <div class="mod_confirm" id="mod_confirm">
+            <div class="modal-content confirm-content">
+                <div class="title">
+                    <h2>Confirm Delete</h2>
+                </div>
+
+                <div class="modal_field confirm-cnt">
+                    <span>Are you sure you want to delete this item? You can't undo this after deleting.</span>
+                </div>
+
+                <div class="modal_field_rows modal_btns">
+                    <form action="">
+                        <button class="btn_delete confirm_del" id="delete">DELETE</button>
+                    </form>
+                    <button class="btn_cancel2" id="btn_cancel2">CANCEL</button>
+                </div>
             </div>
         </div>
 

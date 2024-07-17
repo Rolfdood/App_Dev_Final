@@ -32,6 +32,11 @@
         }
     }
 
+    if (isset($_POST['confirm_del'])) {
+        deleteBudget($bud_id);
+        header('Location: ../php/budget.php');
+    }
+
     if (isset($_POST['btn_update'])) {
         $bud_title = htmlspecialchars(strip_tags($_POST['modal_title']));
         $bud_desc = htmlspecialchars(strip_tags($_POST['modal_desc']));
@@ -60,6 +65,16 @@
 
         $sql = "UPDATE budget SET bud_title = '$title', bud_desc = '$desc', date_modified = '$cur_date' WHERE bud_id = $id";
 
+        $result = mysqli_query($db_connect, $sql);
+
+        mysqli_close($db_connect);
+    }
+
+    function deleteBudget($id) {
+        include 'db_conn.php';
+
+        $sql = "DELETE FROM budget WHERE bud_id = $id";
+        
         $result = mysqli_query($db_connect, $sql);
 
         mysqli_close($db_connect);

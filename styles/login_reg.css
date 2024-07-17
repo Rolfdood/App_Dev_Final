@@ -5,15 +5,53 @@
   flex-direction: row;
 }
 
-.details {
+.details1 {
   width: 65%;
   height: inherit;
   background: var(--primary-color);
+  background-image: url('../src/stocks/bg3.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.deets, .reg_deets-header {
+  height: 100%;
+  width: 100%;
+
+  color: var(--container-color);
+  text-shadow: 0 0 10px var(--primary-color);
+
+  background: var(--primary-color-trans2);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.quote {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.author {
+  font-style: italic;
 }
 
 .reg_deets {
   width: 40%;
   background: var(--primary-color);
+  background-image: url('../src/stocks/bg2.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.reg_deets span {
+  font-size: 25px;
 }
 
 .forms {

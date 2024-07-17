@@ -28,14 +28,33 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <link rel="icon" href="../src/assets/logo_colored.png" type="image/icon type">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <title>SoloSpend Register</title>
   <link rel="stylesheet" href="../styles/general.css">
-
   <link rel="stylesheet" href="../styles/login_reg.css">
+  <link rel="stylesheet" href="../styles/navbar.css">
 </head>
 
 <body>
+  <nav class="navbar">
+      <div class="logo">
+        <img src="../src/assets/logo_colored.png" alt="logo">
+        <span class="app-name">SoloSpend</span>
+      </div>
+
+      <div class="nav-buttons">
+        <ul>
+          <li class="nav-link">
+            <a href="../index.php">
+              <i class='bx bxs-home icon'></i>
+              <span class="text2">HOME</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
   <div class="container">
     <section class="reg-form forms">
       <h1>Register</h1>
@@ -110,7 +129,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </section>
 
     <section class="reg_deets">
-
+      <div class="reg_deets-header">
+        <span>Track your expenses with <b>SoloSpend!</b></span>
+      </div>
     </section>
   </div>
 </body>

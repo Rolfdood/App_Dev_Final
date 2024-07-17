@@ -137,3 +137,6 @@
     color: var(--container-color);
 }
 
+form .btn_delete {
+    height: 100%;
+}
