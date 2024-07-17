@@ -52,24 +52,6 @@
         mysqli_close($db_connect);
     }
 
-    function deleteBudget($bud_id) {
-        // ADD USER_ID IN DATABASE INSERT
-        include 'db_conn.php';
-
-        $sql = "INSERT INTO budget (user_id, bud_title, bud_desc, date_modified) VALUES ('$user_id', '$bud_title', '$bud_desc', '$cur_date')";
-
-        $result = mysqli_query($db_connect, $sql);
-
-        /* if (mysqli_query($db_connect, $sql)) {
-            $res_message = "Registration successful";
-        } else {
-            $res_message = "Error: " . $sql . "<br>" mysqli_error($db_connect);
-        }*/
-
-        mysqli_close($db_connect);
-    }
-
-
     // BUDGET ITEMS FUNCTIONS ------------------------------------------------------------------------------------------------------------------------------------
 
     function insertBudgetContent($bud_id, $bud_item) {

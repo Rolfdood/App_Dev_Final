@@ -130,7 +130,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     <section class="reg_deets">
       <div class="reg_deets-header">
-        <span>Track your expenses with SoloSpend!</span>
+        <span>Track your expenses with <b>SoloSpend!</b></span>
       </div>
     </section>
   </div>
