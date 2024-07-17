@@ -49,4 +49,20 @@
 
         mysqli_close( $db_connect );
     }
+
+    // Function to calculate total income or expenses
+    function calculateTotal($db_connect, $table, $user_id, $amount_column) {
+        $sql = "SELECT SUM($amount_column) AS total FROM $table WHERE user_id = $user_id";
+        $result = mysqli_query($db_connect, $sql);
+        $row = mysqli_fetch_assoc($result);
+        return $row['total'] ?: 0; // Return 0 if total is NULL
+    }
+
+    // Function to calculate average income or expenses
+    function calculateAverage($db_connect, $table, $user_id, $amount_column) {
+        $sql = "SELECT AVG($amount_column) AS average FROM $table WHERE user_id = $user_id";
+        $result = mysqli_query($db_connect, $sql);
+        $row = mysqli_fetch_assoc($result);
+        return $row['average'] ?: 0; // Return 0 if average is NULL
+    }
 ?>

@@ -19,6 +19,7 @@
         <link rel="stylesheet" href="../styles/general.css">
         <link rel="stylesheet" href="../styles/user.css">
         <link rel="stylesheet" href="../styles/edit_page.css">
+        <link rel="stylesheet" href="../styles/rm_bud.css">
         <title>Edit Info</title>
     </head>
     <body>
@@ -33,6 +34,10 @@
                     <div class="output_headers">
                         <div class="output_title">
                             <h1>Update Data</h1>
+                        </div>
+
+                        <div class="output_btn">
+                                <a href="../miscs/budget_output.php?bud=<?php echo $return; ?>" class="btn_back btns"><i class='bx bx-arrow-back'></i>BACK</a>
                         </div>
                     </div>
                     <hr>
@@ -71,15 +76,14 @@
                                 if ($action == 'del') echo 'readonly'; ?>>
                         </div>
 
-                        <div class="edit_fields btns">
+                        <div class="edit_fields">
                             <?php if ($action == 'upd') echo
                                 '<input type="submit" value="UPDATE ITEM" name="btn_update" class="btn_update" id="btn_update">';
                             if ($action == 'del') {
                                 echo 
                                 '<input type="submit" value="DELETE ITEM" name="btn_del" class="btn_delete" id="btn_del">'; 
                                 echo '<span class="delete_note"><b>NOTE :</b> The item will be deleted. You can\'t undo this once deleted.</span>';}
-                                
-                                ?>
+                            ?>
                             </div>
                     </form>
                 </div>

@@ -32,11 +32,6 @@
         }
     }
 
-    if (isset($_POST['confirm_del'])) {
-        deleteBudget($bud_id);
-        header('Location: ../php/budget.php');
-    }
-
     if (isset($_POST['btn_update'])) {
         $bud_title = htmlspecialchars(strip_tags($_POST['modal_title']));
         $bud_desc = htmlspecialchars(strip_tags($_POST['modal_desc']));
@@ -55,6 +50,11 @@
             updateSheet($bud_title, $bud_desc, $bud_id);
             header("Location: budget_output.php?bud=$bud_id");
         }
+    }
+
+    if (isset($_POST['confirm_del'])) {
+        deleteBudget($bud_id);
+        header('Location: ../php/budget.php');
     }
 
     function updateSheet($title, $desc, $id) {

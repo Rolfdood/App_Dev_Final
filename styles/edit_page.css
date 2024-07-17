@@ -45,7 +45,7 @@ section {
     margin-top: 30px;
 }
 
-.btn_update {
+.btn_update, .btn_delete {
     height: 50px !important;
     font-size: 15px;
     background: var(--container-color);

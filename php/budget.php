@@ -115,7 +115,7 @@
                     </div>
 
                     <div class="modal_field_rows modal_btns">
-                        <input type="submit" value="CREATE" name="btn_create" class="btn_create" id="btn_create">
+                        <input type="submit" value="CREATE" name="btn_create" class="btn_modal btn_create" id="btn_create">
                     </div>
                 </form>
             </div>

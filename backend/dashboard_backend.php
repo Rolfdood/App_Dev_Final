@@ -3,6 +3,10 @@
 
     $quotes = randQuotations();
 
+    $totalIncome = calculateTotal($db_connect, 'income', $user_id, 'inc_amount');
+    $totalExpenses = calculateTotal($db_connect, 'expenses', $user_id, 'exp_amount');
+    $remaining = $totalIncome - $totalExpenses;
+    
     function getBudget($user_id) {
         // ADD USER_ID IN DATABASE INSERT
         include 'db_conn.php';

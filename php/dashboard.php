@@ -16,7 +16,7 @@
 
         $_SESSION['user_uname'] = $row['user_uname'];
     }
-
+    $user_id = $_SESSION['user_id'];
     include '../backend/dashboard_backend.php';
 ?>
 
@@ -59,15 +59,15 @@
                             <li>
                                 <i class='bx bxs-credit-card-alt icon' ></i>
                                 <span class="summary_deets">
-                                    <b>1000.00</b>
+                                    <b><?php echo number_format($totalExpenses, 2); ?></b>
                                     Total Expenses
                                 </span>
                             </li>
 
                             <li>
-                                <i class='bx bxs-coin icon' ></i>
+                                <<i class='bx bxs-wallet'></i>
                                 <span class="summary_deets">
-                                    <b>1000.00</b>
+                                    <b><?php echo number_format($remaining, 2); ?></b>
                                     Remaining Allowance
                                 </span>
                             </li>

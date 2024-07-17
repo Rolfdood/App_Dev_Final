@@ -39,3 +39,7 @@ table button {
     color: var(--container-color);
     font-weight: bold;
 }
+
+.btn_act_del:hover {
+    background: red !important;
+}

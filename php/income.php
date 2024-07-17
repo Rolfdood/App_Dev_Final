@@ -122,9 +122,9 @@
                         echo "<td>";
                         echo "<form method='post' style='display:inline;'>";
                         echo "<input type='hidden' name='inc_id' value='" . $row['inc_id'] . "'>";
-                        echo "<button type='submit' name='delete_income' class='action-btn delete btn_act_del btn_act' onclick='return confirm(\"Are you sure you want to delete this income?\")'>Delete</button>";
+                        echo "<button type='submit' name='delete_income' class='action-btn delete btn_act_del btn_act' onclick='return confirm(\"Are you sure you want to delete this income?\")'>DELETE</button>";
                         echo "</form>";
-                        echo "<button class='action-btn btn_act_edit btn_act'>Edit</button>";
+                        echo "<button class='action-btn btn_act_edit btn_act'>EDIT</button>";
                         echo "</td>";
                         echo "</tr>";
                     }

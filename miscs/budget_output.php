@@ -41,6 +41,7 @@
                     </div>
 
                     <div class="output_btn">
+                        <a class="btn_back btns" id="btn_back_main" name="btn_back_main" href="../php/budget.php"><i class='bx bx-arrow-back'></i>BACK</a>
                         <button class="btn_add btns" id="btn_new" name="btn_add"><i class='bx bx-plus'></i>ADD ITEM</button>
                         <button class="btn_edit btns" id="btn_edit_main" name="btn_edit_main"><i class='bx bxs-edit'></i>EDIT</button>
                         <button class="btn_delete btns" id="btn_del" name="btn_delete"><i class='bx bx-trash' ></i>DELETE</button>
@@ -171,8 +172,8 @@
                 </div>
 
                 <div class="modal_field_rows modal_btns">
-                    <form action="">
-                        <button class="btn_delete confirm_del" id="delete">DELETE</button>
+                    <form action="" method="post">
+                        <button class="btn_delete confirm_del" name="confirm_del" id="delete">DELETE</button>
                     </form>
                     <button class="btn_cancel2" id="btn_cancel2">CANCEL</button>
                 </div>

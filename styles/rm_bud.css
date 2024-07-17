@@ -49,13 +49,14 @@
     font-style: italic;
 }
 
-.output_btn button {
+.output_btn button, .output_btn a {
     width: 130px;
     height: 50px;
     margin: auto 5px;
+    text-decoration: none;
 }
 
-.output_btn button:hover {
+.output_btn button:hover , .output_btn a:hover {
     background: var(--primary-color);
     color: var(--container-color);
     font-weight: bolder;
