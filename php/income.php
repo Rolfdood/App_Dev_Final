@@ -117,7 +117,7 @@
                         echo "<td>" . $row['inc_origin'] . "</td>";
                         echo "<td>" . $row['inc_type'] . "</td>";
                         echo "<td>" . $row['inc_mot'] . "</td>";
-                        echo "<td>" . $row['inc_amount'] . "</td>";
+                        echo "<td>" . number_format($row['inc_amount']) . "</td>";
                         echo "<td>" . $row['inc_remarks'] . "</td>";
                         echo "<td>";
                         echo "<form method='post' style='display:inline;'>";

@@ -65,7 +65,7 @@
                             </li>
 
                             <li>
-                                <<i class='bx bxs-wallet'></i>
+                                <i class='bx bxs-wallet'></i>
                                 <span class="summary_deets">
                                     <b><?php echo number_format($remaining, 2); ?></b>
                                     Remaining Allowance

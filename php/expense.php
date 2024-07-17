@@ -106,7 +106,7 @@
                         echo "<td>" . date('m/d/Y', strtotime($row['exp_date'])) . "</td>";
                         echo "<td>" . $row['exp_type'] . "</td>";
                         echo "<td>" . $row['exp_mop'] . "</td>";
-                        echo "<td>" . $row['exp_amount'] . "</td>";
+                        echo "<td>" . number_format($row['exp_amount'],2) . "</td>";
                         echo "<td>" . $row['exp_remarks'] . "</td>";
                         echo "<td>";
                         echo "<form method='post' style='display:inline;'>";

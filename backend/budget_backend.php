@@ -88,7 +88,7 @@
                     <span class="bud_item_purp"><?php echo $row['bud_item_purp']; ?></span>
                 </td>
                 <td class="bud_item_amount">
-                    <span class="bud_item_amount"><?php echo $row['bud_item_amount']; ?></span>
+                    <span class="bud_item_amount"><?php echo number_format($row['bud_item_amount'],2); ?></span>
                 </td>
                 <td class="bud_btns">
                     <div class="tbl_rbtns">
