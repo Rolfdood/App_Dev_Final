@@ -1,6 +1,6 @@
 <?php
 /*
-  This php file contains the variables and functions that will be used for registration
+  This PHP file contains the variables and functions that will be used for registration sanitation and validation
 */
 
 //REGEX patterns

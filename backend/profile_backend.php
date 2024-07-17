@@ -1,5 +1,9 @@
 <?php
+/*
+  This PHP file contains the variables and functions that will be used for user profile editing
+*/
 session_start();
+
 //REGEX patterns
 $pattern = [
   'email' => '/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/',

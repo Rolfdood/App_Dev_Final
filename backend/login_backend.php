@@ -1,11 +1,11 @@
 <?php
 /*
-  This PHP file contains the variables and functions that will be used for registration and login validation
+  This PHP file contains the variables and functions that will be used for login  sanitation and validation
 */
 
 // REGEX Patterns
 $pattern = [
-  'email' => '/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/',
+  'email' => '/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/', // Email format
   'password' => '/^(?=.*[0-9])(?=.*[\W_]).{8,}$/', // At least 1 number, 1 special character, and at least 8 characters
   'uname' => '/^[a-zA-Z0-9]{1,30}$/', // At most 30 characters long, contains no spaces, and no special characters
 ];
@@ -80,6 +80,9 @@ function validate_login($input_uname, $input_password, &$error)
 
 function get_UID($username)
 {
+  /*
+  Function to retrieve the UID via username
+  */
   $database = [
     'name' => 'solospend_db',
     'host' => 'localhost',
