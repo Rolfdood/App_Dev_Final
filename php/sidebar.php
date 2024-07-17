@@ -54,13 +54,13 @@
                         <span class="text nav-text">Income</span>
                     </a>
                 </li>
-                <!--
-                <li class="nav-link" <?php //if ($current == 'summary') echo 'id="current"'; ?>>
+                
+                <li class="nav-link" <?php if ($current == 'summary') echo 'id="current"'; ?>>
                     <a href="summary.php" id="">
                         <i class='bx bxs-bar-chart-alt-2 icon' ></i>
                         <span class="text nav-text">Summary</span>
                     </a>
-                </li> -->
+                </li> 
                 <li class="nav-link" <?php if ($current == 'budget') echo 'id="current"'; ?>>
                     <a href="budget.php" id="" title="Budget Plan">
                         <i class='bx bxs-note icon' ></i>

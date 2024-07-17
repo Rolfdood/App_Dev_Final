@@ -77,13 +77,26 @@
         <div class="table-container">
             <table>
                 <tr>
-                    <th>Date|Origin|Type|Mode of Transaction|Amount|Remarks|Actions</th>
+                    <th>Date</th>
+                    <th>Origin</th>
+                    <th>Type</th>
+                    <th>Mode of Transaction</th>
+                    <th>Amount</th>
+                    <th>Remarks</th>
+                    <th>Actions</th>
+                
                 </tr>
                 <?php
                 if ($result && mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
                         echo "<tr>";
-                        echo "<td>" . date('m/d/Y', strtotime($row['inc_date'])) ."|". $row['inc_origin'] ."|". $row['inc_type'] ."|". $row['inc_mot'] ."|". $row['inc_amount'] ."|". $row['inc_remarks'] ."|";
+                        echo "<td>" . date('m/d/Y', strtotime($row['inc_date'])) . "</td>";
+                        echo "<td>" . $row['inc_origin'] . "</td>";
+                        echo "<td>" . $row['inc_type'] . "</td>";
+                        echo "<td>" . $row['inc_mot'] . "</td>";
+                        echo "<td>" . $row['inc_amount'] . "</td>";
+                        echo "<td>" . $row['inc_remarks'] . "</td>";
+                        echo "<td>";
                         echo "<form method='post' style='display:inline;'>";
                         echo "<input type='hidden' name='inc_id' value='" . $row['inc_id'] . "'>";
                         echo "<button type='submit' name='delete_income' class='action-btn delete' onclick='return confirm(\"Are you sure you want to delete this income?\")'>Delete</button>";
