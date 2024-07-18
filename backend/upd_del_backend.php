@@ -6,7 +6,8 @@
     $item_id = $_GET['id'];     // ITEM ID
     $return = $_GET['ret'];
 
-    $data = get_data($sheet, $item_id);
+    if ($current == 'bud')
+        $data = get_data($sheet, $item_id);
 
     $err_bud_items = [False, False, False, False];
     $err_bud_title = [False, False, False];

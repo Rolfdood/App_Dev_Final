@@ -112,6 +112,7 @@
                 <?php
                 if ($result && mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
+                        $row_id = $row['inc_id'];
                         echo "<tr>";
                         echo "<td>" . date('m/d/Y', strtotime($row['inc_date'])) . "</td>";
                         echo "<td>" . $row['inc_origin'] . "</td>";
@@ -124,7 +125,7 @@
                         echo "<input type='hidden' name='inc_id' value='" . $row['inc_id'] . "'>";
                         echo "<button type='submit' name='delete_income' class='action-btn delete btn_act_del btn_act' onclick='return confirm(\"Are you sure you want to delete this income?\")'>DELETE</button>";
                         echo "</form>";
-                        echo "<button class='action-btn btn_act_edit btn_act'>EDIT</button>";
+                        echo "<a href=\"../miscs/upd_del_data.php?action=upd&type=income&sheet=income&id=$row_id&ret=income\" class='action-btn btn_act_edit btn_act'>EDIT</a>";
                         echo "</td>";
                         echo "</tr>";
                     }
