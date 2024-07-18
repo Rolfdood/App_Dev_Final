@@ -2,9 +2,8 @@
 Expenses and Budget Management App for the final project requirement in Application Development
 
 NOTE:
-  Run
-
-
+  -- Import solospend_db.sql to your local host database management before running the website.
+  -- Landing is index.php
 
 
 Sample Account Password:
