@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 17, 2024 at 03:27 PM
+-- Generation Time: Jul 18, 2024 at 03:16 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -79,7 +79,8 @@ INSERT INTO `expenses` (`exp_id`, `user_id`, `exp_date`, `exp_type`, `exp_mop`, 
 (6, 1, '2024-06-07', 'sdasdadas', 'CASH', 54.00, 'daksjdlkasjdlaksjdlaskdlkasdlaskhsajhfsajlhdalskjdlkasjdlkasjd'),
 (7, 1, '2024-06-07', 'sdasdadas', 'CASH', 54.00, 'daksjdlkasjdlaksjdlaskdlkasdlaskhsajhfsajlhdalskjdlkasjdlkasjd'),
 (8, 1, '2024-06-07', 'sdasdadas', 'CASH', 54.00, 'daksjdlkasjdlaksjdlaskdlkasdlaskhsajhfsajlhdalskjdlkasjdlkasjd'),
-(9, 1, '2024-07-19', 'sdasdadas', 'CASH', 54.00, '');
+(9, 1, '2024-07-19', 'sdasdadas', 'CASH', 54.00, ''),
+(12, 4, '2024-07-16', 'Cellphone', 'CASH', 50000.00, 'IPHONE 15');
 
 -- --------------------------------------------------------
 
@@ -119,7 +120,10 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`user_id`, `user_uname`, `user_password`, `user_fname`, `user_lname`, `user_email`, `user_dob`) VALUES
-(1, 'mjadetc', '$2y$10$HREmfpli86hxfQQZuLwKGuaRUG1rMo7pBmylmZOw6hTMdOtHxTqFG', 'Marnel Jade', 'Carpio', '202211328@fit.edu.ph', '2004-06-19');
+(1, 'mjadetc', '$2y$10$HREmfpli86hxfQQZuLwKGuaRUG1rMo7pBmylmZOw6hTMdOtHxTqFG', 'Marnel Jade', 'Carpio', '202211328@fit.edu.ph', '2004-06-19'),
+(2, 'Ralph1126', '$2y$10$YWbeC22tm7EtWbVK30kYNusogHWhb/NSogMLz1EI2tHenhU8HmGuG', 'Ralph Clarence', 'Bello', '202211473@fit.edu.ph', '0000-00-00'),
+(3, 'FRINZ', '2yvO6LhaP6yf.', 'Frinz', 'Leyva', 'example@gmail.com', '0000-00-00'),
+(4, 'MYCHALTANK123', '$2y$10$3o2NvKxddeMDXXt83KcHVOViXz3eYdEvU5SDIb/E.dhHSfnv6rUyC', 'Mychal', 'Pejana', 'mychal@gmail.com', '2024-07-01');
 
 --
 -- Indexes for dumped tables
@@ -167,25 +171,31 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `budget`
 --
 ALTER TABLE `budget`
-  MODIFY `bud_id` int(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `bud_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `budget_item`
 --
 ALTER TABLE `budget_item`
-  MODIFY `bud_item_id` int(25) NOT NULL AUTO_INCREMENT;
+  MODIFY `bud_item_id` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `expenses`
 --
 ALTER TABLE `expenses`
-  MODIFY `exp_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `exp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `income`
+--
+ALTER TABLE `income`
+  MODIFY `inc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
